@@ -1,8 +1,10 @@
+import BaseContainer from "./layout/BaseContainer"
+
 function App() {
   return (
-    <div className="App">
-      MOhammad
-    </div>
+    <>
+      <BaseContainer />
+    </>
   );
 }
 
