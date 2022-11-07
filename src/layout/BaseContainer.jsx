@@ -20,12 +20,12 @@ export default function BasicGrid() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container>
-        <Grid item xs={3}>
-          <Item sx={{ borderRight: "2px solid #fff" }}>
+        <Grid item xs={2}>
+          <Item>
             <Sidebar />
           </Item>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={10}>
           <Item>
             <Stack>
               <Header />
