@@ -11,7 +11,17 @@ import NavigationLink from "./sections/NavigationLink";
 const NavigationPanel = () => {
   return (
     <div>
-      <List>
+      <List
+        sx={{
+          "& .MuiTypography-root": {
+            fontSize: ".85rem",
+          },
+          "& .MuiListItemIcon-root": {
+            minWidth: "35px",
+          },
+ 
+        }}
+      >
         {navigationConfig.map((item) => (
           <React.Fragment key={item.id}>
             {item.type === "group" && <NavigationGroup item={item} />}

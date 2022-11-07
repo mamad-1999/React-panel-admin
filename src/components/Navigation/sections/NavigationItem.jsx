@@ -20,7 +20,7 @@ const NavigationItem = ({ item }) => {
           <Icon>{item.icon}</Icon>
         </ListItemIcon>
       )}
-      <ListItemText primary={item.title} />
+      <ListItemText primary={item.title}  />
     </ListItem>
   );
 };
