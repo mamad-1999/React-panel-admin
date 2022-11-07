@@ -10,7 +10,7 @@ import NavigationLink from "./NavigationLink";
 const NavigationGroup = ({ item }) => {
   return (
     <>
-      <ListSubheader>{item.title}</ListSubheader>
+      <ListSubheader sx={{textAlign: "left"}}>{item.title}</ListSubheader>
       <React.Fragment>
         {item.children &&
           item.children.map((item) => (
