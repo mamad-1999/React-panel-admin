@@ -3,10 +3,10 @@
 // import { DashboardConfig } from "../pages/dashboard/DashboardConfig"
 import { AddPostConfig } from "../pages/posts/AddPostConfig"
 
-const routeConfig = {
+const routeConfig = [
     // ...DashboardConfig.routes,
     ...AddPostConfig.routes,
-}
+]
 
 const routes = [
     ...routeConfig,

@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import PanelLayout from "../../components/PanelLayout/PanelLayout";
 
 const AddPostPage = () => {
   return (
-    <div>AddPostPage</div>
-  )
-}
+    <PanelLayout>
+      <div>AddPostPage</div>
+    </PanelLayout>
+  );
+};
 
-export default AddPostPage
+export default AddPostPage;

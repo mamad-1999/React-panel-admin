@@ -1,4 +1,4 @@
-import BaseContainer from "./layout/BaseContainer"
+import BaseLayout from "./layout/BaseLayout"
 import { RouterProvider } from "react-router-dom";
 import router from "./routes/PanelRoutes";
 // theme 

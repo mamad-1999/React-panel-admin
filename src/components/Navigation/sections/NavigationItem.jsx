@@ -10,10 +10,10 @@ const NavigationItem = ({ item }) => {
   return (
     <ListItem
       button
-      //   component={NavLinkAdapter}
-      //   to={item.url}
-      //   activeClassName={classes.active}
-      //   exact={item.exact}
+        // component={NavLinkAdapter}
+        to={item.url}
+        // activeClassName={classes.active}
+        exact={item.exact}
     >
       {item.icon && (
         <ListItemIcon>

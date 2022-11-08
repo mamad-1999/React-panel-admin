@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import PanelLayout from "../../components/PanelLayout/PanelLayout";
 
 const DashboardPanel = () => {
   return (
-    <div>DashboardPanel</div>
-  )
-}
+    <PanelLayout>
+      <div>DashboardPanel</div>
+    </PanelLayout>
+  );
+};
 
-export default DashboardPanel
+export default DashboardPanel;
