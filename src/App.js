@@ -1,4 +1,6 @@
 import BaseContainer from "./layout/BaseContainer"
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/PanelRoutes";
 // theme 
 
 import { ThemeProvider, createTheme } from "@mui/material";
@@ -13,7 +15,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-        <BaseContainer />
+        <RouterProvider router={router} />
       </ThemeProvider>
     </>
   );
