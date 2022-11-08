@@ -7,34 +7,36 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 
 import NavigationPanel from "../Navigation/NavigationPanel";
+import NavigationContext from "../../context/NavigationContext";
 
 const drawerWidth = 300;
 
 export default function PermanentDrawerLeft() {
+  const { open } = React.useContext(NavigationContext);
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <Drawer
-        sx={{
+    <Drawer
+      sx={{
+        width: drawerWidth,
+        backgroundColor: "red",
+        flexShrink: 0,
+        display: !open && "none",
+        "& .MuiDrawer-paper": {
           width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            borderRight: "2px solid #fff",
-            boxSizing: "border-box",
-          },
-        }}
-        variant="permanent"
-        anchor="left"
-      >
-        <Toolbar variant="dense" sx={{ paddingY: 3 }}>
-          <Typography variant="h6" color="inherit" component="div">
-            React Panel Admin
-          </Typography>
-        </Toolbar>
-        <Divider />
-        <NavigationPanel />
-      </Drawer>
-    </Box>
+          borderRight: "2px solid #fff",
+          boxSizing: "border-box",
+        },
+      }}
+      variant="persistent"
+      anchor="left"
+      open={open}
+    >
+      <Toolbar variant="dense" sx={{ paddingY: 3 }}>
+        <Typography variant="h6" color="inherit" component="div">
+          React Panel Admin
+        </Typography>
+      </Toolbar>
+      <Divider />
+      <NavigationPanel />
+    </Drawer>
   );
 }
