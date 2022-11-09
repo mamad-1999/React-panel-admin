@@ -18,7 +18,6 @@ const Main = () => {
       <Box
         sx={(theme) => ({
           display: "flex",
-          backgroundColor: "grey",
           alignItems: "center",
           padding: theme.spacing(0, 1),
           ...theme.mixins.toolbar,
