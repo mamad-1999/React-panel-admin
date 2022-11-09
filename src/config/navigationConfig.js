@@ -1,4 +1,5 @@
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import PeopleIcon from '@mui/icons-material/People';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
@@ -35,7 +36,7 @@ const navigationConfig = [
                         id: "all posts",
                         title: "All Posts",
                         type: "item",
-                        url: "/pages/posts",
+                        url: "/posts/postlist",
                         exact: true,
                     },
                     {
@@ -43,6 +44,28 @@ const navigationConfig = [
                         title: "Add Post",
                         type: "item",
                         url: "/posts/addpost",
+                        exact: true,
+                    },
+                ],
+            },
+            {
+                id: "users",
+                title: "Users",
+                type: "collapse",
+                icon: <PeopleIcon />,
+                children: [
+                    {
+                        id: "all users",
+                        title: "All Users",
+                        type: "item",
+                        url: "/users/userlist",
+                        exact: true,
+                    },
+                    {
+                        id: "add user",
+                        title: "Add User",
+                        type: "item",
+                        url: "/users/adduser",
                         exact: true,
                     },
                 ],
