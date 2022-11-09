@@ -42,7 +42,7 @@ const navigationConfig = [
                         id: "add post",
                         title: "Add Post",
                         type: "item",
-                        url: "/pages/posts/add-post",
+                        url: "/posts/addpost",
                         exact: true,
                     },
                 ],

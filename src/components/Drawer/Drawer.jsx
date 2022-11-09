@@ -15,7 +15,6 @@ export default function PermanentDrawerLeft(props) {
     <Drawer
       sx={{
         width: props.drawerWidth,
-        backgroundColor: "red",
         flexShrink: 0,
         display: !open && "none",
         "& .MuiDrawer-paper": {
