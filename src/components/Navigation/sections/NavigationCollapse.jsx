@@ -12,48 +12,9 @@ import { ExpandMore } from "@mui/icons-material";
 import NavigationGroup from "./NavigationGroup";
 import NavigationItem from "./NavigationItem";
 import NavigationLink from "./NavigationLink";
-// import { withRouter } from "react-router-dom";
 
-
-const persistCollapseOpen = (location, item) => {
-  return location && checkPathInChildren(item, location.pathname);
-};
-
-const checkPathInChildren = (parent, url) => {
-  if (!parent.children) {
-    return false;
-  }
-
-  for (let i = 0; i < parent.children.length; i++) {
-    if (parent.children[i].children) {
-      if (checkPathInChildren(parent.children[i], url)) {
-        return true;
-      }
-    }
-
-    if (
-      parent.children[i].url === url ||
-      url.includes(parent.children[i].url)
-    ) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-const NavigationCollapse = (props) => {
-  const { item, location } = props;
-  const [open, setOpen] = React.useState(() =>
-    persistCollapseOpen(location, item)
-  );
-  // const [open, setOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    if (persistCollapseOpen(location, item)) {
-      setOpen(true);
-    }
-  }, [location, item]);
+const NavigationCollapse = ({ item }) => {
+  const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -76,7 +37,7 @@ const NavigationCollapse = (props) => {
             <React.Fragment key={item.id}>
               {item.type === "group" && <NavigationGroup item={item} />}
 
-              {/* {item.type === "collapse" && <NavCollapse item={item} />} */}
+              {item.type === "collapse" && <NavigationCollapse item={item} />}
 
               {item.type === "item" && <NavigationItem item={item} />}
 
@@ -88,7 +49,5 @@ const NavigationCollapse = (props) => {
     </ul>
   );
 };
-
-// const NavCollapse = withRouter(React.memo(NavigationCollapse));
 
 export default NavigationCollapse;
