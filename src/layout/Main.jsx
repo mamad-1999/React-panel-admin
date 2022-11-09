@@ -1,43 +1,32 @@
 import React, { useContext } from "react";
 import LayoutContext from "../context/LayoutContext";
 import NavigationContext from "../context/NavigationContext";
-import { makeStyles } from "@mui/styles";
-import clsx from "clsx";
+import { Box } from "@mui/material";
 
-const useStyles = makeStyles((theme) => ({
-  drawerHeader: {
-    display: "flex",
-    backgroundColor: "grey",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    marginLeft: (props) => -props.drawerWidth,
-  },
-  contentShift: {
-    marginLeft: "0 !important",
-  },
-}));
-
-const Main = (props) => {
-  const classes = useStyles(props);
-
+const Main = () => {
   const { open } = useContext(NavigationContext);
   const { content } = useContext(LayoutContext);
 
   return (
-    <main
-      className={clsx(classes.content, {
-        [classes.contentShift]: open,
+    <Box
+      sx={(theme) => ({
+        flexGrow: 1,
+        padding: theme.spacing(3),
+        marginLeft: open ? (props) => -props.drawerWidth : "0 !important",
       })}
     >
-      <div className={classes.drawerHeader} />
+      <Box
+        sx={(theme) => ({
+          display: "flex",
+          backgroundColor: "grey",
+          alignItems: "center",
+          padding: theme.spacing(0, 1),
+          ...theme.mixins.toolbar,
+          justifyContent: "flex-end",
+        })}
+      />
       {content}
-    </main>
+    </Box>
   );
 };
 
