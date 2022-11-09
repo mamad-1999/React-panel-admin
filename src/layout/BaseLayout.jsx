@@ -11,7 +11,7 @@ const BaseLayout = () => {
 
   return (
     <NavigationContext.Provider value={{ open }}>
-      {/* <Header drawerWidth={300} /> */}
+      <Header drawerWidth={300} />
       <DrawerPanel drawerWidth={300} />
       <Main drawerWidth={300} />
     </NavigationContext.Provider>
