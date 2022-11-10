@@ -5,7 +5,7 @@ export const AddPostConfig = {
         {
             path: "/posts/addpost",
             exact: true,
-            element: <AddPostPage/>
+            element: <AddPostPage />
         }
     ]
 } 

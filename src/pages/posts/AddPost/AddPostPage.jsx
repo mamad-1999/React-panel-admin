@@ -1,5 +1,5 @@
 import React from "react";
-import PanelLayout from "../../components/PanelLayout/PanelLayout";
+import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 
 const AddPostPage = () => {
   return (
