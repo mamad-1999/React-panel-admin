@@ -7,6 +7,9 @@ import AreaChartPanel from "../../components/Charts/AreaChart/AreaChartPanel";
 import CircleChartPanel from "../../components/Charts/CircleChart/CircleChartPanel";
 import TinyBarChartPanel from "../../components/Charts/TinyBarChart/TinyBarChartPanel";
 
+// import table
+import DashboardTable from "./components/DoshboardTable/DashboardTable";
+
 const DashboardPanel = () => {
   return (
     <PanelLayout>
@@ -49,6 +52,19 @@ const DashboardPanel = () => {
             }}
           >
             <TinyBarChartPanel />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper
+            sx={{
+              padding: "20px",
+              marginTop: 2,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <DashboardTable />
           </Paper>
         </Grid>
       </Grid>
