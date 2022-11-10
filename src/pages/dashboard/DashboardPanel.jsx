@@ -4,13 +4,14 @@ import { Paper, Typography, Grid } from "@mui/material";
 
 // import chart
 import AreaChartPanel from "../../components/Charts/AreaChart/AreaChartPanel";
-import CircleChartPanel from "../../components/Charts/CircleChartPanel";
+import CircleChartPanel from "../../components/Charts/CircleChart/CircleChartPanel";
+import TinyBarChartPanel from "../../components/Charts/TinyBarChart/TinyBarChartPanel";
 
 const DashboardPanel = () => {
   return (
     <PanelLayout>
       <Typography variant="h6">Dashboard</Typography>
-      <Grid container>
+      <Grid container spacing={1}>
         <Grid item xs={12}>
           <Paper
             sx={{
@@ -38,7 +39,17 @@ const DashboardPanel = () => {
           </Paper>
         </Grid>
         <Grid item xs={8}>
-          <Paper></Paper>
+          <Paper
+            sx={{
+              padding: "10px",
+              marginTop: 2,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <TinyBarChartPanel />
+          </Paper>
         </Grid>
       </Grid>
     </PanelLayout>
