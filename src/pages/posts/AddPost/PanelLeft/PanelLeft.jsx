@@ -7,7 +7,13 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Button,
+  FormGroup,
+  FormControlLabel,
+  Switch,
+  Typography,
 } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 import AddTag from "./AddTag";
 
 const PanelLeft = () => {
@@ -31,10 +37,15 @@ const PanelLeft = () => {
         sx={{
           width: "100%",
           maxWidth: "100%",
-          marginBottom: 8,
+          marginBottom: 5,
         }}
       >
-        <TextField fullWidth label="Author Name" id="Author Name" variant="standard" />
+        <TextField
+          fullWidth
+          label="Author Name"
+          id="Author Name"
+          variant="standard"
+        />
       </Box>
       <Box
         sx={{
@@ -43,13 +54,16 @@ const PanelLeft = () => {
           marginBottom: 2,
         }}
       >
-        <FormControl fullWidth>
+        <Typography variant="p" sx={{ paddingLeft: 1 }}>
+          option
+        </Typography>
+        <FormControl sx={{ marginTop: 2 }} fullWidth>
           <InputLabel id="demo-simple-select-label">Category</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={category}
-            label="Age"
+            label="category"
             onChange={handleChange}
           >
             <MenuItem value="Politics">Politics</MenuItem>
@@ -60,6 +74,41 @@ const PanelLeft = () => {
         </FormControl>
       </Box>
       <AddTag />
+      <Box
+        sx={{
+          width: "100%",
+          maxWidth: "100%",
+          marginBottom: 4,
+          paddingLeft: 2,
+        }}
+      >
+        <FormGroup>
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            label="Comment On"
+          />
+        </FormGroup>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 2,
+        }}
+      >
+        <Button sx={{ width: "50%" }} variant="outlined" color="error">
+          Cancel
+        </Button>
+        <Button
+          sx={{ width: "202px" }}
+          variant="contained"
+          color="success"
+          endIcon={<SendIcon />}
+        >
+          Send
+        </Button>
+      </Box>
     </Paper>
   );
 };
