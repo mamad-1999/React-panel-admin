@@ -3,8 +3,8 @@ import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import { Grid, Paper, Typography, Box, TextField } from "@mui/material";
 
 // import editor
-// import EditorPanel from "../../../components/Editor/EditorPanel";
 import JoditEditor from "jodit-react";
+import PanelLeft from "./PanelLeft/PanelLeft";
 
 const AddPostPage = () => {
   const editor = useRef(null);
@@ -14,8 +14,10 @@ const AddPostPage = () => {
     <PanelLayout>
       <Typography variant="h6">Add Post</Typography>
       <Grid container spacing={1}>
-        <Grid item xs={3}></Grid>
-        <Grid item xs={9}>
+        <Grid item xs={4}>
+          <PanelLeft />
+        </Grid>
+        <Grid item xs={8}>
           <Paper
             sx={{
               padding: "10px",
@@ -49,7 +51,7 @@ const AddPostPage = () => {
                   style: {
                     height: "300px",
                   },
-                  theme: "dark"
+                  theme: "dark",
                 }}
                 tabIndex={1}
                 onBlur={(value) => setContent(value)}
