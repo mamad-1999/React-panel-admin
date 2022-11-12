@@ -1,15 +1,17 @@
 // import configs 
 
-// import { DashboardConfig } from "../pages/dashboard/DashboardConfig"
 import { AddPostConfig } from "../pages/posts/AddPost/AddPostConfig"
+import { PostListConfig } from "../pages/posts/PostList/PostListConfig"
 
-const routeConfig = [
-    // ...DashboardConfig.routes,
+// route configs
+
+const routeConfigs = [
     ...AddPostConfig.routes,
+    ...PostListConfig.routes
 ]
 
 const routes = [
-    ...routeConfig,
+    ...routeConfigs,
 ]
 
 export default routes
