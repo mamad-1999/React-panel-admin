@@ -6,13 +6,16 @@ import { Grid, Paper, Typography, Box, TextField } from "@mui/material";
 import JoditEditor from "jodit-react";
 import PanelLeft from "./PanelLeft/PanelLeft";
 
+// import component
+import Title from "../../../components/Title/Title";
+
 const AddPostPage = () => {
   const editor = useRef(null);
   const [content, setContent] = useState("");
 
   return (
     <PanelLayout>
-      <Typography variant="h6">Add Post</Typography>
+      <Title>Add Post</Title>
       <Grid container spacing={1}>
         <Grid item xs={4}>
           <PanelLeft />

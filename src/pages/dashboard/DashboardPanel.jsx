@@ -10,10 +10,13 @@ import TinyBarChartPanel from "../../components/Charts/TinyBarChart/TinyBarChart
 // import table
 import DashboardTable from "./components/DoshboardTable/DashboardTable";
 
+// import component
+import Title from "../../components/Title/Title";
+
 const DashboardPanel = () => {
   return (
     <PanelLayout>
-      <Typography variant="h6">Dashboard</Typography>
+      <Title>Dashboard</Title>
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Paper
