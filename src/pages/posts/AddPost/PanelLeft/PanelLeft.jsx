@@ -16,6 +16,9 @@ import {
 import SendIcon from "@mui/icons-material/Send";
 import AddTag from "./AddTag";
 
+// import component
+import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
+
 const PanelLeft = () => {
   const [category, setCategory] = useState("");
 
@@ -23,16 +26,7 @@ const PanelLeft = () => {
     setCategory(event.target.value);
   };
   return (
-    <Paper
-      sx={{
-        padding: "20px 10px",
-        marginTop: 2,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <BoxLayout column={true}>
       <Box
         sx={{
           width: "100%",
@@ -109,7 +103,7 @@ const PanelLeft = () => {
           Send
         </Button>
       </Box>
-    </Paper>
+    </BoxLayout>
   );
 };
 

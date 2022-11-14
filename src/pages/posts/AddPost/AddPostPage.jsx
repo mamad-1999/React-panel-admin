@@ -8,6 +8,7 @@ import PanelLeft from "./PanelLeft/PanelLeft";
 
 // import component
 import Title from "../../../components/Title/Title";
+import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 
 const AddPostPage = () => {
   const editor = useRef(null);
@@ -21,16 +22,7 @@ const AddPostPage = () => {
           <PanelLeft />
         </Grid>
         <Grid item xs={8}>
-          <Paper
-            sx={{
-              padding: "10px",
-              marginTop: 2,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <BoxLayout column={true}>
             <Box
               sx={{
                 width: "100%",
@@ -61,7 +53,7 @@ const AddPostPage = () => {
                 onChange={(value) => {}}
               />
             </Box>
-          </Paper>
+          </BoxLayout>
         </Grid>
       </Grid>
     </PanelLayout>
