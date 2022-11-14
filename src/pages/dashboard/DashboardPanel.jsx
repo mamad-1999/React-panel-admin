@@ -1,6 +1,6 @@
 import React from "react";
 import PanelLayout from "../../components/PanelLayout/PanelLayout";
-import { Paper, Typography, Grid } from "@mui/material";
+import { Paper, Grid } from "@mui/material";
 
 // import chart
 import AreaChartPanel from "../../components/Charts/AreaChart/AreaChartPanel";
@@ -12,6 +12,7 @@ import DashboardTable from "./components/DoshboardTable/DashboardTable";
 
 // import component
 import Title from "../../components/Title/Title";
+import BoxLayout from "../../components/BoxLayout/BoxLayout";
 
 const DashboardPanel = () => {
   return (
@@ -19,56 +20,24 @@ const DashboardPanel = () => {
       <Title>Dashboard</Title>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Paper
-            sx={{
-              padding: "20px",
-              marginTop: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <BoxLayout>
             <AreaChartPanel />
-          </Paper>
+          </BoxLayout>
         </Grid>
         <Grid item xs={4}>
-          <Paper
-            sx={{
-              padding: "10px",
-              marginTop: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <BoxLayout>
             <CircleChartPanel />
-          </Paper>
+          </BoxLayout>
         </Grid>
         <Grid item xs={8}>
-          <Paper
-            sx={{
-              padding: "10px",
-              marginTop: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <BoxLayout>
             <TinyBarChartPanel />
-          </Paper>
+          </BoxLayout>
         </Grid>
         <Grid item xs={12}>
-          <Paper
-            sx={{
-              padding: "20px",
-              marginTop: 2,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <BoxLayout>
             <DashboardTable />
-          </Paper>
+          </BoxLayout>
         </Grid>
       </Grid>
     </PanelLayout>
