@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
-import { Grid, Paper, Box, TextField } from "@mui/material";
+import { Grid, Box, TextField } from "@mui/material";
 
 // import editor
 import JoditEditor from "jodit-react";
