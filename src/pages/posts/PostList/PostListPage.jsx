@@ -20,8 +20,13 @@ const fetchPosts = () => {
 };
 
 const PostListPage = () => {
-  const data = useQuery(["posts"], fetchPosts);
+  const { data, isLoading } = useQuery(["posts"], fetchPosts);
   console.log(data);
+
+  if (isLoading) {
+    return <h2>is Loading ...</h2>;
+  }
+
   return (
     <PanelLayout>
       <Box>
@@ -30,13 +35,13 @@ const PostListPage = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {/* {posts.map((post, index) => (
+          {data?.data.map((post, index) => (
             <Grid xs={12} sm={4} md={4} key={index}>
               <Card>
                 <CardMedia
                   component="img"
                   height="140"
-                  image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+                  image={post.poster}
                   alt="green iguana"
                 />
                 <CardContent>
@@ -55,7 +60,7 @@ const PostListPage = () => {
                 </CardActions>
               </Card>
             </Grid>
-          ))} */}
+          ))}
         </Grid>
       </Box>
     </PanelLayout>
