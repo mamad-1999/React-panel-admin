@@ -1,14 +1,14 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
+import {
+  Box,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import styled from "@emotion/styled";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 
 // import component
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
@@ -67,14 +67,6 @@ const posts = [
   },
 ];
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
-
 const PostListPage = () => {
   return (
     <PanelLayout>
@@ -86,7 +78,7 @@ const PostListPage = () => {
         >
           {posts.map((post, index) => (
             <Grid xs={12} sm={4} md={4} key={index}>
-              <Card >
+              <Card>
                 <CardMedia
                   component="img"
                   height="140"
