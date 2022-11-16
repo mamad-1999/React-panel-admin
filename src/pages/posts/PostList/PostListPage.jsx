@@ -1,4 +1,6 @@
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import {
   Box,
   Card,
@@ -7,72 +9,19 @@ import {
   CardMedia,
   Button,
   Typography,
-} from "@mui/material/Box";
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 // import component
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 
-// test data
-const posts = [
-  {
-    id: 1,
-    title: "Front end skill",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-    poster: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-    date: "17:43",
-    tags: ["programming", "computer", "javascript"],
-    category: "computer",
-    comment: false,
-    author: "Mohammad Yousefvand",
-  },
-  {
-    id: 2,
-    title: "Front end skill",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-    poster: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-    date: "17:43",
-    tags: ["programming", "computer", "javascript"],
-    category: "computer",
-    comment: false,
-    author: "Mohammad Yousefvand",
-  },
-  {
-    id: 3,
-    title: "Front end skill",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-    poster: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-    date: "17:43",
-    tags: ["programming", "computer", "javascript"],
-    category: "computer",
-    comment: false,
-    author: "Mohammad Yousefvand",
-  },
-  {
-    id: 4,
-    title: "Front end skill",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-    poster: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-    date: "17:43",
-    tags: ["programming", "computer", "javascript"],
-    category: "computer",
-    comment: false,
-    author: "Mohammad Yousefvand",
-  },
-  {
-    id: 5,
-    title: "Front end skill",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-    poster: "https://mui.com/static/images/cards/contemplative-reptile.jpg",
-    date: "17:43",
-    tags: ["programming", "computer", "javascript"],
-    category: "computer",
-    comment: false,
-    author: "Mohammad Yousefvand",
-  },
-];
+const fetchPosts = () => {
+  return axios.get("http://localhost:8000/posts");
+};
 
 const PostListPage = () => {
+  const data = useQuery(["posts"], fetchPosts);
+  console.log(data);
   return (
     <PanelLayout>
       <Box>
@@ -81,7 +30,7 @@ const PostListPage = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {posts.map((post, index) => (
+          {/* {posts.map((post, index) => (
             <Grid xs={12} sm={4} md={4} key={index}>
               <Card>
                 <CardMedia
@@ -106,7 +55,7 @@ const PostListPage = () => {
                 </CardActions>
               </Card>
             </Grid>
-          ))}
+          ))} */}
         </Grid>
       </Box>
     </PanelLayout>

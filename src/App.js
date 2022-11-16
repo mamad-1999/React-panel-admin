@@ -1,5 +1,5 @@
-import BaseLayout from "./layout/BaseLayout"
 import { RouterProvider } from "react-router-dom";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import router from "./routes/PanelRoutes";
 // theme 
 
@@ -11,11 +11,15 @@ const darkTheme = createTheme({
   },
 });
 
+const queryClint = new QueryClient()
+
 function App() {
   return (
     <>
       <ThemeProvider theme={darkTheme}>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClint}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </ThemeProvider>
     </>
   );
