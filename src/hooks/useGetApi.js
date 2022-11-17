@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
-import axios from "axios"
+import { request } from "../utils/api"
 
 const getPostsData = () => {
-    return axios.get("http://localhost:8000/posts")
+    return request({ url: "/posts" })
 }
 
 export const useGetApi = () => {
