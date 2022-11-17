@@ -1,6 +1,4 @@
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import {
   Box,
   Card,
@@ -14,6 +12,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 
 // import component
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
+import Loading from "../../../components/Loading/Loading";
 
 // import custom hook
 import { useGetApi } from "../../../hooks/useGetApi";
@@ -22,7 +21,7 @@ const PostListPage = () => {
   const { data, isLoading } = useGetApi(["posts"], "/posts");
 
   if (isLoading) {
-    return <h2>is Loading ...</h2>;
+    return <Loading />;
   }
 
   return (
