@@ -15,13 +15,11 @@ import Grid from "@mui/material/Unstable_Grid2";
 // import component
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 
-const fetchPosts = () => {
-  return axios.get("http://localhost:8000/posts");
-};
+// import custom hook
+import { useGetApi } from "../../../hooks/useGetApi";
 
 const PostListPage = () => {
-  const { data, isLoading } = useQuery(["posts"], fetchPosts);
-  console.log(data);
+  const { data, isLoading } = useGetApi()
 
   if (isLoading) {
     return <h2>is Loading ...</h2>;
