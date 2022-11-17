@@ -19,7 +19,7 @@ import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import { useGetApi } from "../../../hooks/useGetApi";
 
 const PostListPage = () => {
-  const { data, isLoading } = useGetApi()
+  const { data, isLoading } = useGetApi(["posts"], "/posts");
 
   if (isLoading) {
     return <h2>is Loading ...</h2>;
