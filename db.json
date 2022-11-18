@@ -6,7 +6,11 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
+      "tags": [
+        "programming",
+        "computer",
+        "javascript"
+      ],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
@@ -17,54 +21,26 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
+      "tags": [
+        "programming",
+        "computer",
+        "javascript"
+      ],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
     },
     {
-      "id": 3,
-      "title": "Front end skill",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-      "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
-      "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
-      "category": "computer",
+      "title": "javascript",
+      "content": "<p>i am developer</p>",
+      "author": "mohammad",
+      "category": "Programming",
+      "tags": [
+        "React js",
+        "Javascript"
+      ],
       "comment": false,
-      "author": "Mohammad Yousefvand"
-    },
-    {
-      "id": 4,
-      "title": "Front end skill",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-      "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
-      "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
-      "category": "computer",
-      "comment": false,
-      "author": "Mohammad Yousefvand"
-    },
-    {
-      "id": 5,
-      "title": "Front end skill",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-      "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
-      "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
-      "category": "computer",
-      "comment": false,
-      "author": "Mohammad Yousefvand"
-    },
-    {
-      "id": 6,
-      "title": "Front end skill",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-      "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
-      "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
-      "category": "computer",
-      "comment": false,
-      "author": "Mohammad Yousefvand"
+      "id": 3
     }
   ]
 }

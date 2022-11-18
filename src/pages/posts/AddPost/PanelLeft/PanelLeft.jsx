@@ -22,7 +22,7 @@ import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
 import { PostPageContext } from "../../../../context/PostPageContext";
 
 const PanelLeft = () => {
-  const { postData, textFieldHandler, commentHandler } =
+  const { postData, textFieldHandler, commentHandler, addPostHandler } =
     useContext(PostPageContext);
 
   return (
@@ -105,6 +105,7 @@ const PanelLeft = () => {
           variant="contained"
           color="success"
           endIcon={<SendIcon />}
+          onClick={addPostHandler}
         >
           Send
         </Button>

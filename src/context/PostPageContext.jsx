@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import usePostApi from "../hooks/usePostApi";
 
 export const PostPageContext = createContext({});
 
@@ -43,6 +44,12 @@ const PostPageProvider = ({ children }) => {
     });
   };
 
+  const { mutate: addPost } = usePostApi(["posts"]);
+
+  const addPostHandler = () => {
+    addPost(postData)
+  }
+
   return (
     <PostPageContext.Provider
       value={{
@@ -51,6 +58,7 @@ const PostPageProvider = ({ children }) => {
         contentHandler,
         tagHandler,
         commentHandler,
+        addPostHandler
       }}
     >
       {children}

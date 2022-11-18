@@ -17,7 +17,6 @@ const BaseLayout = () => {
 
   useEffect(() => {
     document.addEventListener("resize", drawSizeHandler);
-    console.log("resize");
 
     return () => {
       document.addEventListener("resize", drawSizeHandler);

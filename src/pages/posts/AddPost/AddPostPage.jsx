@@ -9,7 +9,6 @@ import PanelLeft from "./PanelLeft/PanelLeft";
 // import component
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
-import PostPageProvider from "../../../context/PostPageContext";
 
 // context
 import { PostPageContext } from "../../../context/PostPageContext";
