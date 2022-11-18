@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
   Box,
   OutlinedInput,
@@ -8,6 +8,9 @@ import {
   Select,
   Chip,
 } from "@mui/material";
+
+// context
+import { PostPageContext } from "../../../../context/PostPageContext";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,14 +37,7 @@ const names = [
 ];
 
 const AddTag = () => {
-  const [item, setItem] = useState([]);
-
-  const handleChange = (event) => {
-    const {
-      target: { value },
-    } = event;
-    setItem(typeof value === "string" ? value.split(",") : value);
-  };
+  const { postData, tagHandler } = useContext(PostPageContext);
 
   return (
     <Box
@@ -57,8 +53,8 @@ const AddTag = () => {
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
-          value={item}
-          onChange={handleChange}
+          value={postData.tags}
+          onChange={tagHandler}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>

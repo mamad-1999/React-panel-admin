@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
-  Paper,
   Box,
   TextField,
   FormControl,
@@ -19,12 +18,13 @@ import AddTag from "./AddTag";
 // import component
 import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
 
-const PanelLeft = () => {
-  const [category, setCategory] = useState("");
+// context
+import { PostPageContext } from "../../../../context/PostPageContext";
 
-  const handleChange = (event) => {
-    setCategory(event.target.value);
-  };
+const PanelLeft = () => {
+  const { postData, textFieldHandler, commentHandler } =
+    useContext(PostPageContext);
+
   return (
     <BoxLayout column={true}>
       <Box
@@ -39,6 +39,9 @@ const PanelLeft = () => {
           label="Author Name"
           id="Author Name"
           variant="standard"
+          name="author"
+          value={postData.author}
+          onChange={textFieldHandler}
         />
       </Box>
       <Box
@@ -56,9 +59,10 @@ const PanelLeft = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={category}
+            value={postData.category}
             label="category"
-            onChange={handleChange}
+            name="category"
+            onChange={textFieldHandler}
           >
             <MenuItem value="Politics">Politics</MenuItem>
             <MenuItem value="Sport">Sport</MenuItem>
@@ -78,7 +82,9 @@ const PanelLeft = () => {
       >
         <FormGroup>
           <FormControlLabel
-            control={<Switch defaultChecked />}
+            control={
+              <Switch checked={postData.comment} onChange={commentHandler} />
+            }
             label="Comment On"
           />
         </FormGroup>

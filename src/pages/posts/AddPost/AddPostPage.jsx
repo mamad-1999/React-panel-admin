@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import { Grid, Box, TextField } from "@mui/material";
 
@@ -9,10 +9,16 @@ import PanelLeft from "./PanelLeft/PanelLeft";
 // import component
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
+import PostPageProvider from "../../../context/PostPageContext";
+
+// context
+import { PostPageContext } from "../../../context/PostPageContext";
+import { useContext } from "react";
 
 const AddPostPage = () => {
   const editor = useRef(null);
-  const [content, setContent] = useState("");
+  const { postData, textFieldHandler, contentHandler } =
+    useContext(PostPageContext);
 
   return (
     <PanelLayout>
@@ -30,7 +36,14 @@ const AddPostPage = () => {
                 marginBottom: 2,
               }}
             >
-              <TextField fullWidth label="Post Title" id="Post Title" />
+              <TextField
+                fullWidth
+                label="Post Title"
+                id="Post Title"
+                name="title"
+                value={postData.title}
+                onChange={textFieldHandler}
+              />
             </Box>
             <Box
               sx={{
@@ -40,7 +53,7 @@ const AddPostPage = () => {
             >
               <JoditEditor
                 ref={editor}
-                value={content}
+                value={postData.content}
                 config={{
                   readonly: false,
                   style: {
@@ -49,7 +62,7 @@ const AddPostPage = () => {
                   theme: "dark",
                 }}
                 tabIndex={1}
-                onBlur={(value) => setContent(value)}
+                onBlur={(value) => contentHandler(value)}
                 onChange={(value) => {}}
               />
             </Box>
