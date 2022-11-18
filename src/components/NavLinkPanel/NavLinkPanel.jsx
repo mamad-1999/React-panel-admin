@@ -9,7 +9,7 @@ const NavLinkPanel = React.forwardRef((props, ref) => {
         color: isActive ? "#fff" : "",
         background: isActive ? "#01abbb" : "",
       })}
-      innerRef={ref}
+      ref={ref}
       {...props}
     />
   );
