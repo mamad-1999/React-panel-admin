@@ -3,15 +3,17 @@ import usePostApi from "../hooks/usePostApi";
 
 export const PostPageContext = createContext({});
 
+const initialState = {
+  title: "",
+  content: "",
+  author: "",
+  category: "",
+  tags: [],
+  comment: true,
+};
+
 const PostPageProvider = ({ children }) => {
-  const [postData, setPostData] = useState({
-    title: "",
-    content: "",
-    author: "",
-    category: "",
-    tags: [],
-    comment: true,
-  });
+  const [postData, setPostData] = useState(initialState);
 
   const textFieldHandler = (e) => {
     setPostData({
@@ -47,7 +49,12 @@ const PostPageProvider = ({ children }) => {
   const { mutate: addPost } = usePostApi(["posts"]);
 
   const addPostHandler = () => {
-    addPost(postData)
+    addPost(postData);
+    resetState()
+  };
+
+  const resetState = () => {
+    setPostData(initialState)
   }
 
   return (
@@ -58,7 +65,8 @@ const PostPageProvider = ({ children }) => {
         contentHandler,
         tagHandler,
         commentHandler,
-        addPostHandler
+        addPostHandler,
+        resetState
       }}
     >
       {children}

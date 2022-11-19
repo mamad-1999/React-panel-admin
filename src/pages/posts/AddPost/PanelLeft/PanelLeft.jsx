@@ -22,8 +22,13 @@ import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
 import { PostPageContext } from "../../../../context/PostPageContext";
 
 const PanelLeft = () => {
-  const { postData, textFieldHandler, commentHandler, addPostHandler } =
-    useContext(PostPageContext);
+  const {
+    postData,
+    textFieldHandler,
+    commentHandler,
+    addPostHandler,
+    resetState,
+  } = useContext(PostPageContext);
 
   return (
     <BoxLayout column={true}>
@@ -97,7 +102,12 @@ const PanelLeft = () => {
           gap: 2,
         }}
       >
-        <Button sx={{ width: "50%" }} variant="outlined" color="error">
+        <Button
+          onClick={resetState}
+          sx={{ width: "50%" }}
+          variant="outlined"
+          color="error"
+        >
           Cancel
         </Button>
         <Button
