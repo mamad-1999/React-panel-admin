@@ -1,5 +1,6 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { request } from "../utils/api";
+import { useSnackbar } from "notistack";
 
 const postData = (data) => {
     return request({ url: "/posts", method: "post", data: data })
@@ -7,6 +8,7 @@ const postData = (data) => {
 
 const usePostApi = (key) => {
     const queryClient = useQueryClient()
+    const { enqueueSnackbar } = useSnackbar()
 
     return useMutation(postData, {
         onMutate: async newData => {
@@ -27,9 +29,11 @@ const usePostApi = (key) => {
         },
         onError: (err, newData, context) => {
             queryClient.setQueryData(key, context.previousData)
+            enqueueSnackbar("Added post failed", { variant: "error" })
         },
         onSettled: () => {
             queryClient.invalidateQueries(key)
+            enqueueSnackbar("Added post successfully", { variant: "success" })
         }
     })
 }
