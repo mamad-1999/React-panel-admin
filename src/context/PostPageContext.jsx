@@ -38,8 +38,8 @@ const PostPageProvider = ({ children }) => {
 
   const { mutate: addPost } = usePostApi(["posts"]);
 
-  const onSubmit = (data) => {
-    const formData = { ...data, ...postData };
+  const onSubmit = (validateData) => {
+    const formData = { ...validateData, ...postData };
     addPost(formData);
     resetState()
     console.log(formData)

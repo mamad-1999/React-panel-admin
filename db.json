@@ -16,16 +16,14 @@
       "author": "Mohammad Yousefvand"
     },
     {
-      "title": "javascript",
+      "title": "Javascript",
       "author": "Admin",
-      "category": "Programming",
+      "category": "Computer",
       "content": "",
       "tags": [
-        "React js",
-        "Javascript",
-        "Front-end"
+        "Back-end"
       ],
-      "comment": true,
+      "comment": false,
       "id": 2
     }
   ]

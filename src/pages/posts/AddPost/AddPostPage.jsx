@@ -24,7 +24,14 @@ const AddPostPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    setValue
+  } = useForm({
+    defaultValues: {
+      title: "ali",
+      author: "Admin",
+      category: "",
+    },
+  });
 
   return (
     <PanelLayout>
@@ -32,7 +39,7 @@ const AddPostPage = () => {
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={1}>
           <Grid item xs={4}>
-            <PanelLeft register={register} errors={errors} />
+            <PanelLeft register={register} errors={errors} onSetValue={setValue} />
           </Grid>
           <Grid item xs={8}>
             <BoxLayout column={true}>

@@ -2,9 +2,6 @@ import React, { useContext } from "react";
 import {
   Box,
   TextField,
-  FormControl,
-  InputLabel,
-  Select,
   MenuItem,
   Button,
   FormGroup,
@@ -21,12 +18,8 @@ import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
 // context
 import { PostPageContext } from "../../../../context/PostPageContext";
 
-const PanelLeft = ({ register, errors }) => {
-  const {
-    postData,
-    commentHandler,
-    resetState,
-  } = useContext(PostPageContext);
+const PanelLeft = ({ register, errors, onSetValue }) => {
+  const { postData, commentHandler, resetState } = useContext(PostPageContext);
 
   return (
     <BoxLayout column={true}>
@@ -43,7 +36,6 @@ const PanelLeft = ({ register, errors }) => {
           id="Author Name"
           variant="standard"
           name="author"
-          defaultValue={"Admin"}
           {...register("author", {
             required: "required",
           })}
@@ -61,24 +53,24 @@ const PanelLeft = ({ register, errors }) => {
         <Typography variant="p" sx={{ paddingLeft: 1 }}>
           option
         </Typography>
-        <FormControl sx={{ marginTop: 2 }} fullWidth>
-          <InputLabel id="demo-simple-select-label">Category</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="category"
-            name="category"
-            {...register("category", {
-              required: "required",
-            })}
-            error={Boolean(errors.category)}
-          >
-            <MenuItem value="Politics">Politics</MenuItem>
-            <MenuItem value="Sport">Sport</MenuItem>
-            <MenuItem value="Programming">Programming</MenuItem>
-            <MenuItem value="Computer">Computer</MenuItem>
-          </Select>
-        </FormControl>
+        <TextField
+          sx={{ marginTop: 2 }}
+          fullWidth
+          select
+          id="demo-simple-select"
+          label="category"
+          onChange={(e) => onSetValue("category", e.target.value, true)}
+          defaultValue=""
+          {...register("category", {
+            required: "required",
+          })}
+          error={Boolean(errors.category)}
+        >
+          <MenuItem value="Politics">Politics</MenuItem>
+          <MenuItem value="Sport">Sport</MenuItem>
+          <MenuItem value="Programming">Programming</MenuItem>
+          <MenuItem value="Computer">Computer</MenuItem>
+        </TextField>
       </Box>
       <AddTag />
       <Box
