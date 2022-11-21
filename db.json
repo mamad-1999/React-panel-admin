@@ -16,62 +16,17 @@
       "author": "Mohammad Yousefvand"
     },
     {
-      "id": 2,
-      "title": "Front end skill",
-      "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
-      "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
-      "date": "17:43",
-      "tags": [
-        "programming",
-        "computer",
-        "javascript"
-      ],
-      "category": "computer",
-      "comment": false,
-      "author": "Mohammad Yousefvand"
-    },
-    {
-      "title": "Developer",
-      "content": "<p>i am developer</p>",
-      "author": "mohammad",
+      "title": "javascript",
+      "author": "Admin",
       "category": "Programming",
+      "content": "",
       "tags": [
-        "Javascript",
         "React js",
+        "Javascript",
         "Front-end"
       ],
-      "comment": false,
-      "id": 3
-    },
-    {
-      "title": "",
-      "content": "<p>ddddd</p>",
-      "author": "ddd",
-      "category": "Sport",
-      "tags": [
-        "Javascript",
-        "React js"
-      ],
       "comment": true,
-      "id": 4
-    },
-    {
-      "title": "",
-      "content": "<p><br></p>",
-      "author": "",
-      "category": "",
-      "tags": [],
-      "comment": true,
-      "id": 5
-    },
-    {
-      "title": "",
-      "content": "",
-      "author": "",
-      "category": "",
-      "tags": [],
-      "comment": true,
-      "id": 6
+      "id": 2
     }
   ]
 }

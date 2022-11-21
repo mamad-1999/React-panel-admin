@@ -14,18 +14,25 @@ import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 import { PostPageContext } from "../../../context/PostPageContext";
 import { useContext } from "react";
 
+// validation
+import { useForm } from "react-hook-form";
+
 const AddPostPage = () => {
   const editor = useRef(null);
-  const { postData, textFieldHandler, contentHandler } =
-    useContext(PostPageContext);
+  const { postData, contentHandler, onSubmit } = useContext(PostPageContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   return (
     <PanelLayout>
       <Title>Add Post</Title>
-      <form action="">
+      <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={1}>
           <Grid item xs={4}>
-            <PanelLeft />
+            <PanelLeft register={register} errors={errors} />
           </Grid>
           <Grid item xs={8}>
             <BoxLayout column={true}>
@@ -41,8 +48,11 @@ const AddPostPage = () => {
                   label="Post Title"
                   id="Post Title"
                   name="title"
-                  value={postData.title}
-                  onChange={textFieldHandler}
+                  {...register("title", {
+                    required: "required",
+                  })}
+                  error={Boolean(errors.title)}
+                  helperText={errors.title ? errors.title.message : " "}
                 />
               </Box>
               <Box

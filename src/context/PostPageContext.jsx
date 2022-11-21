@@ -4,23 +4,13 @@ import usePostApi from "../hooks/usePostApi";
 export const PostPageContext = createContext({});
 
 const initialState = {
-  title: "",
   content: "",
-  author: "",
-  category: "",
   tags: [],
   comment: true,
 };
 
 const PostPageProvider = ({ children }) => {
   const [postData, setPostData] = useState(initialState);
-
-  const textFieldHandler = (e) => {
-    setPostData({
-      ...postData,
-      [e.target.name]: e.target.value,
-    });
-  };
 
   const contentHandler = (value) => {
     setPostData({
@@ -48,25 +38,26 @@ const PostPageProvider = ({ children }) => {
 
   const { mutate: addPost } = usePostApi(["posts"]);
 
-  const addPostHandler = () => {
-    addPost(postData);
+  const onSubmit = (data) => {
+    const formData = { ...data, ...postData };
+    addPost(formData);
     resetState()
+    console.log(formData)
   };
 
   const resetState = () => {
-    setPostData(initialState)
-  }
+    setPostData(initialState);
+  };
 
   return (
     <PostPageContext.Provider
       value={{
         postData,
-        textFieldHandler,
         contentHandler,
         tagHandler,
         commentHandler,
-        addPostHandler,
-        resetState
+        onSubmit,
+        resetState,
       }}
     >
       {children}

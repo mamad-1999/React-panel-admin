@@ -21,12 +21,10 @@ import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
 // context
 import { PostPageContext } from "../../../../context/PostPageContext";
 
-const PanelLeft = () => {
+const PanelLeft = ({ register, errors }) => {
   const {
     postData,
-    textFieldHandler,
     commentHandler,
-    addPostHandler,
     resetState,
   } = useContext(PostPageContext);
 
@@ -45,8 +43,12 @@ const PanelLeft = () => {
           id="Author Name"
           variant="standard"
           name="author"
-          value={postData.author}
-          onChange={textFieldHandler}
+          defaultValue={"Admin"}
+          {...register("author", {
+            required: "required",
+          })}
+          error={Boolean(errors.author)}
+          helperText={errors.author ? errors.author.message : " "}
         />
       </Box>
       <Box
@@ -64,10 +66,12 @@ const PanelLeft = () => {
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            value={postData.category}
             label="category"
             name="category"
-            onChange={textFieldHandler}
+            {...register("category", {
+              required: "required",
+            })}
+            error={Boolean(errors.category)}
           >
             <MenuItem value="Politics">Politics</MenuItem>
             <MenuItem value="Sport">Sport</MenuItem>
@@ -115,7 +119,7 @@ const PanelLeft = () => {
           variant="contained"
           color="success"
           endIcon={<SendIcon />}
-          onClick={addPostHandler}
+          type="submit"
         >
           Send
         </Button>
