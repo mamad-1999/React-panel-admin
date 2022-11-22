@@ -7,7 +7,6 @@ export const PostPageContext = createContext({});
 const initialState = {
   content: "",
   tags: [],
-  // comment: true,
   poster: "",
 };
 

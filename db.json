@@ -6,78 +6,10 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": [
-        "programming",
-        "computer",
-        "javascript"
-      ],
+      "tags": ["programming", "computer", "javascript"],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
-    },
-    {
-      "title": "ddd",
-      "author": "Admin",
-      "category": "Programming",
-      "tags": [],
-      "content": "",
-      "comment": true,
-      "poster": "",
-      "id": 2
-    },
-    {
-      "title": "sdfs",
-      "author": "Admin",
-      "category": "Computer",
-      "tags": [],
-      "content": "",
-      "comment": true,
-      "poster": "",
-      "id": 3
-    },
-    {
-      "title": "asdfaf",
-      "author": "Admin",
-      "category": "Programming",
-      "tags": [],
-      "content": "",
-      "comment": true,
-      "poster": "",
-      "id": 4
-    },
-    {
-      "title": "fff",
-      "author": "Admin",
-      "category": "Programming",
-      "content": "",
-      "tags": [
-        "Back-end",
-        "Front-end",
-        "Javascript"
-      ],
-      "comment": true,
-      "poster": "",
-      "id": 5
-    },
-    {
-      "title": "sdf",
-      "author": "Admin",
-      "category": "Programming",
-      "comment": false,
-      "content": "",
-      "tags": [],
-      "poster": "",
-      "id": 6
-    },
-    {
-      "title": "sdf",
-      "author": "Admin",
-      "category": "Programming",
-      "comment": true,
-      "content": "",
-      "tags": [],
-      "poster": "",
-      "id": 7
     }
   ]
 }

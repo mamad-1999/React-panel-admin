@@ -45,9 +45,8 @@ const AddPostPage = () => {
                   fullWidth
                   label="Post Title"
                   id="Post Title"
-                  name="title"
                   {...register("title", {
-                    required: "required",
+                    required: "This field is required",
                   })}
                   error={Boolean(errors.title)}
                   helperText={errors.title ? errors.title.message : " "}
