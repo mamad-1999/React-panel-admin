@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import usePostApi from "../hooks/usePostApi";
 
@@ -8,6 +8,7 @@ const initialState = {
   content: "",
   tags: [],
   comment: true,
+  poster: "",
 };
 
 const PostPageProvider = ({ children }) => {
@@ -50,6 +51,31 @@ const PostPageProvider = ({ children }) => {
     });
   };
 
+  const convertImageToStringBase = (file) => {
+    try {
+      const fileReader = new FileReader();
+      fileReader.onload = (e) => {
+        const { result } = e.target;
+        if (result) {
+          setPostData({
+            ...postData,
+            poster: result,
+          });
+        }
+      };
+      fileReader.readAsDataURL(file);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const resetImage = () => {
+    setPostData({
+      ...postData,
+      poster: "",
+    });
+  };
+
   const { mutate } = usePostApi(["posts"]);
 
   const onSubmit = (validateData) => {
@@ -74,6 +100,8 @@ const PostPageProvider = ({ children }) => {
         contentHandler,
         tagHandler,
         commentHandler,
+        convertImageToStringBase,
+        resetImage,
         onSubmit,
         resetState,
       }}

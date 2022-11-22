@@ -17,8 +17,10 @@ import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
 
 // context
 import { PostPageContext } from "../../../../context/PostPageContext";
+import ImageUpload from "./ImageUpload";
 
 const PanelLeft = () => {
+  console.log("render panel left");
   const {
     postData,
     commentHandler,
@@ -80,11 +82,12 @@ const PanelLeft = () => {
         </TextField>
       </Box>
       <AddTag />
+      <ImageUpload />
       <Box
         sx={{
           width: "100%",
           maxWidth: "100%",
-          marginBottom: 4,
+          marginY: 3,
           paddingLeft: 2,
         }}
       >

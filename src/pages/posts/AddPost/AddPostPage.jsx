@@ -22,6 +22,8 @@ const AddPostPage = () => {
     useContext(PostPageContext);
   const { isLoading } = useGetApi(["posts"], "/posts");
 
+  console.log("render Add post")
+
   return (
     <PanelLayout>
       <Title>Add Post</Title>
