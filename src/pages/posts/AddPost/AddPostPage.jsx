@@ -14,24 +14,13 @@ import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 import { PostPageContext } from "../../../context/PostPageContext";
 import { useContext } from "react";
 
-// validation
-import { useForm } from "react-hook-form";
+import { useGetApi } from "../../../hooks/useGetApi";
 
 const AddPostPage = () => {
   const editor = useRef(null);
-  const { postData, contentHandler, onSubmit } = useContext(PostPageContext);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setValue
-  } = useForm({
-    defaultValues: {
-      title: "ali",
-      author: "Admin",
-      category: "",
-    },
-  });
+  const { postData, contentHandler, handleSubmit, onSubmit, register, errors } =
+    useContext(PostPageContext);
+  const { isLoading } = useGetApi(["posts"], "/posts");
 
   return (
     <PanelLayout>
@@ -39,7 +28,7 @@ const AddPostPage = () => {
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={1}>
           <Grid item xs={4}>
-            <PanelLeft register={register} errors={errors} onSetValue={setValue} />
+            <PanelLeft />
           </Grid>
           <Grid item xs={8}>
             <BoxLayout column={true}>

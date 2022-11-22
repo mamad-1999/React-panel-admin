@@ -18,8 +18,15 @@ import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
 // context
 import { PostPageContext } from "../../../../context/PostPageContext";
 
-const PanelLeft = ({ register, errors, onSetValue }) => {
-  const { postData, commentHandler, resetState } = useContext(PostPageContext);
+const PanelLeft = () => {
+  const {
+    postData,
+    commentHandler,
+    resetState,
+    register,
+    errors,
+    onSetValue,
+  } = useContext(PostPageContext);
 
   return (
     <BoxLayout column={true}>

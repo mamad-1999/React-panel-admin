@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import usePostApi from "../hooks/usePostApi";
 
 export const PostPageContext = createContext({});
@@ -11,6 +12,19 @@ const initialState = {
 
 const PostPageProvider = ({ children }) => {
   const [postData, setPostData] = useState(initialState);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    reset,
+  } = useForm({
+    defaultValues: {
+      title: "",
+      author: "Admin",
+      category: "",
+    },
+  });
 
   const contentHandler = (value) => {
     setPostData({
@@ -36,22 +50,26 @@ const PostPageProvider = ({ children }) => {
     });
   };
 
-  const { mutate: addPost } = usePostApi(["posts"]);
+  const { mutate } = usePostApi(["posts"]);
 
   const onSubmit = (validateData) => {
     const formData = { ...validateData, ...postData };
-    addPost(formData);
-    resetState()
-    console.log(formData)
+    mutate(formData);
+    console.log(formData);
   };
 
   const resetState = () => {
     setPostData(initialState);
+    reset();
   };
 
   return (
     <PostPageContext.Provider
       value={{
+        register,
+        handleSubmit,
+        errors,
+        setValue,
         postData,
         contentHandler,
         tagHandler,

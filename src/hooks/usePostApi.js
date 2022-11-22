@@ -2,7 +2,8 @@ import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { request } from "../utils/api";
 import { useSnackbar } from "notistack";
 
-const postData = (data) => {
+const fetchData = (data) => {
+    console.log(data)
     return request({ url: "/posts", method: "post", data: data })
 }
 
@@ -10,7 +11,7 @@ const usePostApi = (key) => {
     const queryClient = useQueryClient()
     const { enqueueSnackbar } = useSnackbar()
 
-    return useMutation(postData, {
+    return useMutation(fetchData, {
         onMutate: async newData => {
             await queryClient.cancelQueries({ queryKey: key })
             const previousData = queryClient.getQueryData(key)

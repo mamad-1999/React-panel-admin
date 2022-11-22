@@ -12,7 +12,13 @@ const darkTheme = createTheme({
   },
 });
 
-const queryClint = new QueryClient()
+const queryClint = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 function App() {
   return (

@@ -18,12 +18,14 @@
     {
       "title": "Javascript",
       "author": "Admin",
-      "category": "Computer",
-      "content": "",
+      "category": "Programming",
+      "content": "<p>I am developer</p><p><br></p><p>and I love <strong style=\"background-color: rgb(204, 0, 0);\">Javascript</strong></p>",
       "tags": [
-        "Back-end"
+        "React js",
+        "Javascript",
+        "Front-end"
       ],
-      "comment": false,
+      "comment": true,
       "id": 2
     }
   ]

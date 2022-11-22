@@ -48,7 +48,7 @@ const AddTag = () => {
       }}
     >
       <FormControl sx={{ width: "100%" }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">Tags</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
