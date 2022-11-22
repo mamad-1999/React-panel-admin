@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback } from "react";
+import React, { createContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import usePostApi from "../hooks/usePostApi";
 
@@ -7,7 +7,7 @@ export const PostPageContext = createContext({});
 const initialState = {
   content: "",
   tags: [],
-  comment: true,
+  // comment: true,
   poster: "",
 };
 
@@ -19,11 +19,13 @@ const PostPageProvider = ({ children }) => {
     formState: { errors },
     setValue,
     reset,
+    getValues,
   } = useForm({
     defaultValues: {
       title: "",
       author: "Admin",
       category: "",
+      comment: true,
     },
   });
 
@@ -41,13 +43,6 @@ const PostPageProvider = ({ children }) => {
     setPostData({
       ...postData,
       tags: typeof value === "string" ? value.split(",") : value,
-    });
-  };
-
-  const commentHandler = (e) => {
-    setPostData({
-      ...postData,
-      comment: e.target.checked,
     });
   };
 
@@ -96,10 +91,10 @@ const PostPageProvider = ({ children }) => {
         handleSubmit,
         errors,
         setValue,
+        getValues,
         postData,
         contentHandler,
         tagHandler,
-        commentHandler,
         convertImageToStringBase,
         resetImage,
         onSubmit,

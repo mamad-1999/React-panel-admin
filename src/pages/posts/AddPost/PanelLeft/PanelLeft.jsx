@@ -21,14 +21,8 @@ import ImageUpload from "./ImageUpload";
 
 const PanelLeft = () => {
   console.log("render panel left");
-  const {
-    postData,
-    commentHandler,
-    resetState,
-    register,
-    errors,
-    onSetValue,
-  } = useContext(PostPageContext);
+  const { resetState, register, errors, setValue, getValues } =
+    useContext(PostPageContext);
 
   return (
     <BoxLayout column={true}>
@@ -68,7 +62,7 @@ const PanelLeft = () => {
           select
           id="demo-simple-select"
           label="category"
-          onChange={(e) => onSetValue("category", e.target.value, true)}
+          onChange={(e) => setValue("category", e.target.value, true)}
           defaultValue=""
           {...register("category", {
             required: "required",
@@ -94,7 +88,10 @@ const PanelLeft = () => {
         <FormGroup>
           <FormControlLabel
             control={
-              <Switch checked={postData.comment} onChange={commentHandler} />
+              <Switch
+                defaultChecked={getValues("comment")}
+                {...register("comment")}
+              />
             }
             label="Comment On"
           />
