@@ -16,7 +16,6 @@ const ImageUpload = () => {
     if (file[0].type.match(IMAGE_TYPE) && file[0].size < 2_000_000) {
       convertImageToStringBase(file[0]);
     }
-    console.log(file);
   };
 
   const handelChange = (e) => {

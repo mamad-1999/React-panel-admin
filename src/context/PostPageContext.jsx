@@ -70,7 +70,7 @@ const PostPageProvider = ({ children }) => {
     });
   };
 
-  const { mutate } = usePostApi(["posts"]);
+  const { mutate } = usePostApi(["posts"], "/posts", "post");
 
   const onSubmit = (validateData) => {
     const formData = { ...validateData, ...postData };

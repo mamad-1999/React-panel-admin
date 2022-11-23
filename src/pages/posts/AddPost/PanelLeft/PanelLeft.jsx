@@ -20,7 +20,6 @@ import { PostPageContext } from "../../../../context/PostPageContext";
 import ImageUpload from "./ImageUpload";
 
 const PanelLeft = () => {
-  console.log("render panel left");
   const { resetState, register, errors, setValue, getValues } =
     useContext(PostPageContext);
 
