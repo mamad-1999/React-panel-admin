@@ -1,6 +1,6 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { request } from "../utils/api";
-import { useSnackbar } from "notistack";
+import useNotification from "./useNotification";
 
 const fetchData = (data, url, method) => {
     return request({ url: url, method: method, data: data })
@@ -8,7 +8,7 @@ const fetchData = (data, url, method) => {
 
 const usePostApi = (key, url, method) => {
     const queryClient = useQueryClient()
-    const { enqueueSnackbar } = useSnackbar()
+    const { showNotification } = useNotification()
 
     return useMutation((data) => fetchData(data, url, method), {
         onMutate: async newData => {
@@ -29,11 +29,11 @@ const usePostApi = (key, url, method) => {
         },
         onError: (err, newData, context) => {
             queryClient.setQueryData(key, context.previousData)
-            enqueueSnackbar("Added post failed", { variant: "error" })
+            showNotification("Added post failed", "error")
         },
         onSettled: () => {
             queryClient.invalidateQueries(key)
-            enqueueSnackbar("Added post successfully", { variant: "success" })
+            showNotification("Added post successfully", "success")
         }
     })
 }
