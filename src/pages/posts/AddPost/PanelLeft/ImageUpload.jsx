@@ -8,7 +8,6 @@ import { PostPageContext } from "../../../../context/PostPageContext";
 const IMAGE_TYPE = /image\/(png|jpg|jpeg|gif)/i;
 
 const ImageUpload = () => {
-  console.log("render upload");
   const { convertImageToStringBase, resetImage, postData } =
     useContext(PostPageContext);
 

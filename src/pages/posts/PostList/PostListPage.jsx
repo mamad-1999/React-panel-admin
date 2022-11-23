@@ -16,9 +16,15 @@ import Loading from "../../../components/Loading/Loading";
 
 // import custom hook
 import { useGetApi } from "../../../hooks/useGetApi";
+import useDeleteApi from "../../../hooks/useDeleteApi";
 
 const PostListPage = () => {
   const { data, isLoading } = useGetApi(["posts"], "/posts");
+  const { mutate } = useDeleteApi(["posts"]);
+
+  const deletePost = (postId) => {
+    mutate(`/posts/${postId}`);
+  };
 
   if (isLoading) {
     return <Loading />;
@@ -52,8 +58,17 @@ const PostListPage = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
+                  <Button size="small" variant="contained">
+                    Share
+                  </Button>
+                  <Button
+                    onClick={() => deletePost(post.id)}
+                    size="small"
+                    variant="contained"
+                    color="error"
+                  >
+                    Delete
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>

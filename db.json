@@ -6,7 +6,11 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
+      "tags": [
+        "programming",
+        "computer",
+        "javascript"
+      ],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
