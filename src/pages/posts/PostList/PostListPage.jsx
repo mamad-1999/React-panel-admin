@@ -18,6 +18,9 @@ import Loading from "../../../components/Loading/Loading";
 import { useGetApi } from "../../../hooks/useGetApi";
 import useDeleteApi from "../../../hooks/useDeleteApi";
 
+// default image for post item
+import postImage from "../../../assets/images/default_blog.jpg"
+
 const PostListPage = () => {
   const { data, isLoading } = useGetApi(["posts"], "/posts");
   const { mutate } = useDeleteApi(["posts"]);
@@ -40,20 +43,27 @@ const PostListPage = () => {
         >
           {data?.data.map((post, index) => (
             <Grid xs={12} sm={4} md={4} key={index}>
-              <Card>
+              <Card
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
                 <CardMedia
                   component="img"
                   height="140"
-                  image={post.poster}
-                  alt="green iguana"
+                  image={post.poster ? post.poster : postImage}
+                  alt="post panel"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     {post.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  {/* <Typography variant="body2" color="text.secondary">
                     {post.content}
-                  </Typography>
+                  </Typography> */}
                 </CardContent>
                 <Box
                   sx={{
@@ -66,13 +76,14 @@ const PostListPage = () => {
                 >
                   {post.tags.map((tag) => (
                     <Button
+                      key={tag}
                       sx={{
                         borderRadius: "30px",
                         padding: "0 10px",
                         height: "25px",
                         fontSize: "14px",
                         backgroundColor: "#8a8a8a",
-                        textTransform: "capitalize"
+                        textTransform: "capitalize",
                       }}
                       size="sm"
                       variant="contained"
@@ -81,9 +92,7 @@ const PostListPage = () => {
                     </Button>
                   ))}
                 </Box>
-                <CardActions
-                  sx={{ borderTop: "1px solid #505050", paddingY: 2 }}
-                >
+                <CardActions sx={{ borderTop: "1px solid #505050" }}>
                   <Button size="small" variant="contained">
                     Share
                   </Button>
