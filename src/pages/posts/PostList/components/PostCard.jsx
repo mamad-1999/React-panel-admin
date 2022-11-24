@@ -63,7 +63,11 @@ const PostCard = ({ post, onDeletePost }) => {
           ))}
         </Box>
         <CardActions sx={{ borderTop: "1px solid #505050" }}>
-          <Button size="small" variant="contained">
+          <Button
+            size="small"
+            variant="contained"
+            sx={{ backgroundColor: "#0063cc", color: "#fff" }}
+          >
             Share
           </Button>
           <Button
