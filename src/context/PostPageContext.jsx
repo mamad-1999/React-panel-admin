@@ -22,7 +22,6 @@ const PostPageProvider = ({ children }) => {
   } = useForm({
     defaultValues: {
       title: "",
-      author: "Admin",
       category: "",
       comment: true,
     },

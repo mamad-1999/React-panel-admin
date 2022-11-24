@@ -29,25 +29,6 @@ const PanelLeft = () => {
         sx={{
           width: "100%",
           maxWidth: "100%",
-          marginBottom: 3,
-        }}
-      >
-        <TextField
-          fullWidth
-          label="Author Name"
-          id="Author Name"
-          variant="standard"
-          {...register("author", {
-            required: "This field is required",
-          })}
-          error={Boolean(errors.author)}
-          helperText={errors.author ? errors.author.message : " "}
-        />
-      </Box>
-      <Box
-        sx={{
-          width: "100%",
-          maxWidth: "100%",
           marginBottom: 2,
         }}
       >
