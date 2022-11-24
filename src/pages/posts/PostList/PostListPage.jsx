@@ -49,15 +49,41 @@ const PostListPage = () => {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    {post.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    {post.content}
                   </Typography>
                 </CardContent>
-                <CardActions>
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: 1,
+                    alignItems: "center",
+                    flexWrap: "wrap",
+                    padding: 2,
+                  }}
+                >
+                  {post.tags.map((tag) => (
+                    <Button
+                      sx={{
+                        borderRadius: "30px",
+                        padding: "0 10px",
+                        height: "25px",
+                        fontSize: "14px",
+                        backgroundColor: "#8a8a8a",
+                        textTransform: "capitalize"
+                      }}
+                      size="sm"
+                      variant="contained"
+                    >
+                      {tag}
+                    </Button>
+                  ))}
+                </Box>
+                <CardActions
+                  sx={{ borderTop: "1px solid #505050", paddingY: 2 }}
+                >
                   <Button size="small" variant="contained">
                     Share
                   </Button>
