@@ -1,21 +1,17 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import AddIcon from "@mui/icons-material/Add";
-
-// import Link to create button link 
-import { Link } from "react-router-dom";
 
 // import component
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import Loading from "../../../components/Loading/Loading";
-import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 
 // import custom hook
 import { useGetApi } from "../../../hooks/useGetApi";
 import useDeleteApi from "../../../hooks/useDeleteApi";
 
 import PostCard from "./components/PostCard";
+import PostListTopBar from "./components/PostListTopBar";
 
 const PostListPage = () => {
   const { data, isLoading } = useGetApi(["posts"], "/posts");
@@ -32,18 +28,7 @@ const PostListPage = () => {
   return (
     <PanelLayout>
       <Box>
-        <BoxLayout justify={"start"}>
-          <Button
-            LinkComponent={Link}
-            to="/posts/addpost"
-            size="medium"
-            variant="contained"
-            sx={{ backgroundColor: "#0063cc", color: "#fff" }}
-            startIcon={<AddIcon />}
-          >
-            Add Post
-          </Button>
-        </BoxLayout>
+        <PostListTopBar />
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
