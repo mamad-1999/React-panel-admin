@@ -1,7 +1,12 @@
 import React from "react";
 import { Paper } from "@mui/material";
 
-const BoxLayout = ({ column = false, justify = "center", children }) => {
+const BoxLayout = ({
+  column = false,
+  justify = "center",
+  gap = 0,
+  children,
+}) => {
   return (
     <Paper
       sx={{
@@ -11,6 +16,7 @@ const BoxLayout = ({ column = false, justify = "center", children }) => {
         flexDirection: column ? "column" : "row",
         justifyContent: justify,
         alignItems: "center",
+        gap: gap,
       }}
     >
       {children}
