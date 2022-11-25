@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Paper, Button, TextField } from "@mui/material";
+import { Paper, Button, TextField, InputAdornment } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import SearchIcon from "@mui/icons-material/Search";
 
 // import Link to create button link
 import { Link } from "react-router-dom";
@@ -36,9 +37,16 @@ const PostListTopBar = () => {
 
       <TextField
         fullWidth
-        label="Filter By Title"
+        placeholder="Filter By Title"
         id="Post Title"
         size="small"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
     </Paper>
   );
