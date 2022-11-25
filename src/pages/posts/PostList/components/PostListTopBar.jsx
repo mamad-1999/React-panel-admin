@@ -27,31 +27,19 @@ const PostListTopBar = () => {
         sx={{
           backgroundColor: "#0063cc",
           color: "#fff",
-          width: { xs: "100%", sm: "150px" },
+          width: { xs: "100%", sm: "200px" },
         }}
         startIcon={<AddIcon />}
       >
         Add Post
       </Button>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          gap: 2,
-        }}
-      >
-        <TextField
-          label="Filter By Tag"
-          id="Post Title"
-          size="small"
-        />
-        <TextField
-          label="Filter By Title
-        "
-          id="Post Title"
-          size="small"
-        />
-      </Box>
+
+      <TextField
+        fullWidth
+        label="Filter By Title"
+        id="Post Title"
+        size="small"
+      />
     </Paper>
   );
 };
