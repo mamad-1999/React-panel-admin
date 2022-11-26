@@ -5,6 +5,8 @@ const fetchData = (url) => {
     return request({ url: url })
 }
 
-export const useGetApi = (key, urlAddress) => {
-    return useQuery(key, () => fetchData(urlAddress))
+export const useGetApi = (key, urlAddress, filtered) => {
+    return useQuery(key, () => fetchData(urlAddress), {
+        select: (data) => data.data.filter(post => post.title.toLowerCase().includes(filtered.toLowerCase()))
+    })
 }

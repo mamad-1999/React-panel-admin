@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
@@ -14,7 +14,8 @@ import PostCard from "./components/PostCard";
 import PostListTopBar from "./components/PostListTopBar";
 
 const PostListPage = () => {
-  const { data, isLoading } = useGetApi(["posts"], "/posts");
+  const [filterKey, setFilterKey] = useState("");
+  const { data, isLoading } = useGetApi(["posts"], "/posts", filterKey);
   const { mutate } = useDeleteApi(["posts"]);
 
   const deletePost = (postId) => {
@@ -25,17 +26,24 @@ const PostListPage = () => {
     return <Loading />;
   }
 
+  const handelFilterChange = (e) => {
+    setFilterKey(e.target.value);
+  };
+
   return (
     <PanelLayout>
       <Box>
-        <PostListTopBar />
+        <PostListTopBar
+          onFilterChange={handelFilterChange}
+          filterKey={filterKey}
+        />
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
           marginTop={2}
         >
-          {data?.data.map((post, index) => (
+          {data.map((post, index) => (
             <PostCard post={post} key={index} onDeletePost={deletePost} />
           ))}
         </Grid>

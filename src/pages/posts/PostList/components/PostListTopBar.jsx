@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 // import component
 
-const PostListTopBar = () => {
+const PostListTopBar = ({ onFilterChange, filterKey }) => {
   return (
     <Paper
       sx={{
@@ -40,6 +40,8 @@ const PostListTopBar = () => {
         placeholder="Filter By Title"
         id="Post Title"
         size="small"
+        onChange={onFilterChange}
+        value={filterKey}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
