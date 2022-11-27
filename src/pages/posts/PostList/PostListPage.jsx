@@ -15,6 +15,7 @@ import PostListTopBar from "./components/PostListTopBar";
 
 const PostListPage = () => {
   const [filterKey, setFilterKey] = useState("");
+  // filterdKey is optional property for filter post
   const { data, isLoading } = useGetApi(["posts"], "/posts", filterKey);
   const { mutate } = useDeleteApi(["posts"]);
 

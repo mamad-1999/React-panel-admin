@@ -51,24 +51,10 @@ const navigationConfig = [
             {
                 id: "users",
                 title: "Users",
-                type: "collapse",
+                type: "item",
                 icon: <PeopleIcon />,
-                children: [
-                    {
-                        id: "all users",
-                        title: "All Users",
-                        type: "item",
-                        url: "/users/userlist",
-                        exact: true,
-                    },
-                    {
-                        id: "add user",
-                        title: "Add User",
-                        type: "item",
-                        url: "/users/adduser",
-                        exact: true,
-                    },
-                ],
+                url: "/userlist",
+                exact: true
             },
             {
                 id: "calendar",

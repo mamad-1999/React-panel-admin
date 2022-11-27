@@ -7,6 +7,8 @@ const fetchData = (url) => {
 
 export const useGetApi = (key, urlAddress, filtered) => {
     return useQuery(key, () => fetchData(urlAddress), {
+
+        // filter post in clint filtering
         select: (data) => data.data.filter(post => post.title.toLowerCase().includes(filtered.toLowerCase()))
     })
 }
