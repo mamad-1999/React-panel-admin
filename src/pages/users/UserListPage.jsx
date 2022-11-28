@@ -1,15 +1,16 @@
 import * as React from "react";
 import { Box, Stack, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-
+// import component
 import PanelLayout from "../../components/PanelLayout/PanelLayout";
 import Title from "../../components/Title/Title";
-
-// custom hook
-import { useGetApi } from "../../hooks/useGetApi";
-
+import BoxLayout from "../../components/BoxLayout/BoxLayout";
 // loading component
 import Loading from "../../components/Loading/Loading";
+// custom hook
+import { useGetApi } from "../../hooks/useGetApi";
+import useUpdateApi from "../../hooks/useUpdateApi";
+
 import useDeleteApi from "../../hooks/useDeleteApi";
 
 const columns = [
@@ -52,7 +53,16 @@ const columns = [
 
       const deleteHandler = (e) => {
         const currentRow = params.row;
+        // onDelete === mutate
         row.onDelete(`/users/${currentRow.id}`);
+      };
+
+      const editHandler = (e) => {
+        const currentRow = params.row;
+        // send data without onSelect and onEdit
+        const { onEdit, onDelete, ...other } = currentRow;
+        // onEdit === mutate
+        row.onEdit(other);
       };
 
       return (
@@ -61,7 +71,7 @@ const columns = [
             variant="outlined"
             color="warning"
             size="small"
-            // onClick={onClick}
+            onClick={editHandler}
           >
             Edit
           </Button>
@@ -80,8 +90,12 @@ const columns = [
 ];
 
 const UserListPage = () => {
+  // Get
   const { data, isLoading } = useGetApi(["users"], "/users");
-  const { mutate } = useDeleteApi(["users"]);
+  // Delete
+  const { mutate: deleteUser } = useDeleteApi(["users"]);
+  // Edit
+  const { mutate: editUser } = useUpdateApi("users", "/users", "put");
 
   if (isLoading) {
     return <Loading />;
@@ -91,24 +105,27 @@ const UserListPage = () => {
   const modifiedRows = data.map((element) => {
     return {
       ...element,
-      onDelete: mutate,
+      onDelete: deleteUser,
+      onEdit: editUser,
     };
   });
 
   return (
     <PanelLayout>
       <Title>User list</Title>
-      <Box sx={{ height: 400, width: "100%" }}>
-        <DataGrid
-          rows={modifiedRows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          checkboxSelection
-          disableSelectionOnClick
-          experimentalFeatures={{ newEditingApi: true }}
-        />
-      </Box>
+      <BoxLayout>
+        <Box sx={{ height: 400, width: "100%" }}>
+          <DataGrid
+            rows={modifiedRows}
+            columns={columns}
+            pageSize={5}
+            rowsPerPageOptions={[5]}
+            checkboxSelection
+            disableSelectionOnClick
+            experimentalFeatures={{ newEditingApi: true }}
+          />
+        </Box>
+      </BoxLayout>
     </PanelLayout>
   );
 };

@@ -6,7 +6,11 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
+      "tags": [
+        "programming",
+        "computer",
+        "javascript"
+      ],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
@@ -16,7 +20,9 @@
       "category": "Politics",
       "comment": true,
       "content": "",
-      "tags": ["Back-end"],
+      "tags": [
+        "Back-end"
+      ],
       "poster": "",
       "id": 2
     }
@@ -24,9 +30,9 @@
   "users": [
     {
       "id": 1,
-      "lastName": "Snow",
-      "firstName": "Jon",
-      "age": 35
+      "lastName": "kazem nia",
+      "firstName": "niki",
+      "age": "21"
     },
     {
       "id": 2,
@@ -69,12 +75,6 @@
       "lastName": "Frances",
       "firstName": "Rossini",
       "age": 36
-    },
-    {
-      "id": 9,
-      "lastName": "Roxie",
-      "firstName": "Harvey",
-      "age": 65
     }
   ]
 }
