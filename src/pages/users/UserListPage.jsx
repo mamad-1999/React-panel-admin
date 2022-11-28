@@ -9,6 +9,7 @@ import { useGetApi } from "../../hooks/useGetApi";
 
 // loading component
 import Loading from "../../components/Loading/Loading";
+import useDeleteApi from "../../hooks/useDeleteApi";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90 },
@@ -42,12 +43,15 @@ const columns = [
   },
   {
     field: "actions",
+    headerName: "Actions",
     type: "actions",
     width: 200,
     renderCell: (params) => {
-      const onClick = (e) => {
+      const { row } = params;
+
+      const deleteHandler = (e) => {
         const currentRow = params.row;
-        return alert(JSON.stringify(currentRow, null, 4));
+        row.onDelete(`/users/${currentRow.id}`);
       };
 
       return (
@@ -56,7 +60,7 @@ const columns = [
             variant="outlined"
             color="warning"
             size="small"
-            onClick={onClick}
+            // onClick={onClick}
           >
             Edit
           </Button>
@@ -64,7 +68,7 @@ const columns = [
             variant="outlined"
             color="error"
             size="small"
-            onClick={onClick}
+            onClick={deleteHandler}
           >
             Delete
           </Button>
@@ -76,15 +80,25 @@ const columns = [
 
 const UserListPage = () => {
   const { data, isLoading } = useGetApi(["users"], "/users");
+  const { mutate } = useDeleteApi(["users"]);
 
   if (isLoading) {
     return <Loading />;
   }
+
+  //Modify rows here:
+  const modifiedRows = data.map((element) => {
+    return {
+      ...element,
+      onDelete: mutate,
+    };
+  });
+
   return (
     <PanelLayout>
       <Box sx={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={data}
+          rows={modifiedRows}
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}
