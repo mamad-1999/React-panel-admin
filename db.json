@@ -56,12 +56,12 @@
       "id": 5,
       "lastName": "Targaryen",
       "firstName": "Daenerys",
-      "age": null
+      "age": 21
     },
     {
       "id": 6,
       "lastName": "Melisandre",
-      "firstName": null,
+      "firstName": "Melisandre",
       "age": 150
     },
     {

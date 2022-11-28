@@ -1,6 +1,7 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import { DataGrid } from "@mui/x-data-grid";
+import { Box, Stack, Button } from "@mui/material";
+import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import PanelLayout from "../../components/PanelLayout/PanelLayout";
 
@@ -27,8 +28,8 @@ const columns = [
   {
     field: "age",
     headerName: "Age",
-    type: "number",
-    width: 110,
+    // type: "number",
+    width: 80,
     editable: true,
   },
   {
@@ -36,9 +37,50 @@ const columns = [
     headerName: "Full name",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 160,
+    width: 130,
     valueGetter: (params) =>
       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+  },
+  {
+    field: "fullName",
+    headerName: "Full name",
+    sortable: false,
+    width: 130,
+  },
+  {
+    field: "actions",
+    type: "actions",
+    width: 200,
+    renderCell: (params) => {
+      const onClick = (e) => {
+        const currentRow = params.row;
+        return alert(JSON.stringify(currentRow, null, 4));
+      };
+
+      return (
+        <Stack direction="row" spacing={2}>
+          <Button
+            variant="outlined"
+            color="warning"
+            size="small"
+            onClick={onClick}
+          >
+            Edit
+          </Button>
+          <Button
+            variant="outlined"
+            color="error"
+            size="small"
+            onClick={onClick}
+          >
+            Delete
+          </Button>
+        </Stack>
+      );
+    },
+    // getActions: () => [
+    //   <GridActionsCellItem icon={<DeleteIcon />} label="Edit" />,
+    // ],
   },
 ];
 
