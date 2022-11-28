@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Box, Stack, Button } from "@mui/material";
-import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { DataGrid } from "@mui/x-data-grid";
 
 import PanelLayout from "../../components/PanelLayout/PanelLayout";
 
@@ -29,7 +28,7 @@ const columns = [
     field: "age",
     headerName: "Age",
     // type: "number",
-    width: 80,
+    width: 110,
     editable: true,
   },
   {
@@ -37,15 +36,9 @@ const columns = [
     headerName: "Full name",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
-    width: 130,
+    width: 160,
     valueGetter: (params) =>
       `${params.row.firstName || ""} ${params.row.lastName || ""}`,
-  },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    sortable: false,
-    width: 130,
   },
   {
     field: "actions",
@@ -78,9 +71,6 @@ const columns = [
         </Stack>
       );
     },
-    // getActions: () => [
-    //   <GridActionsCellItem icon={<DeleteIcon />} label="Edit" />,
-    // ],
   },
 ];
 
