@@ -3,6 +3,7 @@ import { Box, Stack, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 import PanelLayout from "../../components/PanelLayout/PanelLayout";
+import Title from "../../components/Title/Title";
 
 // custom hook
 import { useGetApi } from "../../hooks/useGetApi";
@@ -96,6 +97,7 @@ const UserListPage = () => {
 
   return (
     <PanelLayout>
+      <Title>User list</Title>
       <Box sx={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={modifiedRows}
