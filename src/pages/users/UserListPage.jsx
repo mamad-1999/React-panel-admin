@@ -4,6 +4,12 @@ import { DataGrid } from "@mui/x-data-grid";
 
 import PanelLayout from "../../components/PanelLayout/PanelLayout";
 
+// custom hook
+import { useGetApi } from "../../hooks/useGetApi";
+
+// loading component
+import Loading from "../../components/Loading/Loading";
+
 const columns = [
   { field: "id", headerName: "ID", width: 90 },
   {
@@ -36,25 +42,19 @@ const columns = [
   },
 ];
 
-const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-];
 const UserListPage = () => {
+  const { data, isLoading } = useGetApi(["users"], "/users");
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <PanelLayout>
-      <Box sx={{ height: 500, width: "100%" }}>
+      <Box sx={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={rows}
+          rows={data}
           columns={columns}
-          pageSize={7}
+          pageSize={5}
           rowsPerPageOptions={[5]}
           checkboxSelection
           disableSelectionOnClick
