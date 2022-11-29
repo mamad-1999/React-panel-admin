@@ -3,7 +3,8 @@ import React from "react";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
-import { Grid, TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 import { useForm } from "react-hook-form";
 
@@ -22,56 +23,71 @@ const AddUserPage = () => {
   return (
     <PanelLayout>
       <Title>Add User</Title>
-      <BoxLayout>
-        <form action="" onSubmit={handleSubmit(onSubmit)}>
-          <Grid container spacing={4}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="First Name"
-                id="First name"
-                {...register("firstName", {
-                  required: "This field is required",
-                })}
-                error={Boolean(errors.title)}
-                helperText={errors.title ? errors.title.message : " "}
-              />
-              <TextField
-                fullWidth
-                label="Last Name"
-                id="Last name"
-                {...register("lastName", {
-                  required: "This field is required",
-                })}
-                error={Boolean(errors.title)}
-                helperText={errors.title ? errors.title.message : " "}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Email"
-                id="email"
-                {...register("email", {
-                  required: "This field is required",
-                })}
-                error={Boolean(errors.title)}
-                helperText={errors.title ? errors.title.message : " "}
-              />
-              <TextField
-                fullWidth
-                label="Age"
-                id="age"
-                {...register("age", {
-                  required: "This field is required",
-                })}
-                error={Boolean(errors.title)}
-                helperText={errors.title ? errors.title.message : " "}
-              />
-            </Grid>
-          </Grid>
-        </form>
-      </BoxLayout>
+      <form action="" onSubmit={handleSubmit(onSubmit)}>
+        <BoxLayout gap={2} column={true}>
+          <TextField
+            fullWidth
+            label="First Name"
+            id="First name"
+            {...register("firstName", {
+              required: "This field is required",
+              maxLength: {
+                value: 10,
+                message: "Character length should than 10",
+              },
+            })}
+            error={Boolean(errors.firstName)}
+            helperText={errors.firstName ? errors.firstName.message : " "}
+          />
+          <TextField
+            fullWidth
+            label="Last Name"
+            id="Last name"
+            {...register("lastName", {
+              required: "This field is required",
+            })}
+            error={Boolean(errors.lastName)}
+            helperText={errors.lastName ? errors.lastName.message : " "}
+          />
+          <TextField
+            fullWidth
+            label="Email"
+            id="email"
+            {...register("email", {
+              required: "This field is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "invalid email address",
+              },
+            })}
+            error={Boolean(errors.email)}
+            helperText={errors.email ? errors.email.message : " "}
+          />
+          <TextField
+            fullWidth
+            label="Age"
+            id="age"
+            {...register("age", {
+              required: "This field is required",
+            })}
+            error={Boolean(errors.age)}
+            helperText={errors.age ? errors.age.message : " "}
+          />
+          <Button
+            fullWidth
+            size="large"
+            type="submit"
+            variant="contained"
+            sx={{
+              backgroundColor: "#0063cc",
+              color: "#fff",
+            }}
+            startIcon={<AddIcon />}
+          >
+            Add User
+          </Button>
+        </BoxLayout>
+      </form>
     </PanelLayout>
   );
 };
