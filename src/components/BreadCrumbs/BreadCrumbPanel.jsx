@@ -1,11 +1,10 @@
 import * as React from "react";
 import { Breadcrumbs, Typography } from "@mui/material";
 import Link from "@mui/material/Link";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import NavLinkPanel from "../NavLinkPanel/NavLinkPanel";
 
 export default function BreadCrumbPanel() {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const pathnames = pathname.split("/").filter(Boolean);
@@ -22,9 +21,10 @@ export default function BreadCrumbPanel() {
           ) : (
             <Link
               underline="hover"
-              color="Highlight"
               key={name}
-              onClick={() => navigate(routeLink)}
+              component={NavLinkPanel}
+              color="Highlight"
+              to={routeLink}
             >
               {name}
             </Link>

@@ -30,9 +30,15 @@ const AddUserPage = () => {
         <BreadCrumbPanel />
       </BoxLayout>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <BoxLayout gap={2} column={true} justify={"center"} alignItems={"start"}>
+        <BoxLayout
+          gap={2}
+          column={true}
+          justify={"center"}
+          alignItems={"start"}
+        >
           <Title>Add User</Title>
           <TextField
+            autoFocus
             fullWidth
             label="First Name"
             id="First name"
