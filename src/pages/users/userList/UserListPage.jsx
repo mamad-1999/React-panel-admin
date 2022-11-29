@@ -38,13 +38,10 @@ const columns = [
     editable: true,
   },
   {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
+    field: "email",
+    headerName: "Email",
     width: 160,
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+    editable: true,
   },
   {
     field: "actions",

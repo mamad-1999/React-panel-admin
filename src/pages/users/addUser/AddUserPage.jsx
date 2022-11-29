@@ -8,7 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 import { useForm } from "react-hook-form";
 
-// import Link
+import usePostApi from "../../../hooks/usePostApi";
 
 const AddUserPage = () => {
   const {
@@ -17,8 +17,10 @@ const AddUserPage = () => {
     formState: { errors },
   } = useForm();
 
+  const { mutate } = usePostApi(["users"], "/users", "post");
+
   const onSubmit = (data) => {
-    console.log(data);
+    mutate(data);
   };
   return (
     <PanelLayout>
@@ -31,10 +33,6 @@ const AddUserPage = () => {
             id="First name"
             {...register("firstName", {
               required: "This field is required",
-              maxLength: {
-                value: 10,
-                message: "Character length should than 10",
-              },
             })}
             error={Boolean(errors.firstName)}
             helperText={errors.firstName ? errors.firstName.message : " "}
@@ -67,6 +65,7 @@ const AddUserPage = () => {
             fullWidth
             label="Age"
             id="age"
+            type={"number"}
             {...register("age", {
               required: "This field is required",
             })}
