@@ -10,8 +10,10 @@ import Loading from "../../components/Loading/Loading";
 // custom hook
 import { useGetApi } from "../../hooks/useGetApi";
 import useUpdateApi from "../../hooks/useUpdateApi";
-
 import useDeleteApi from "../../hooks/useDeleteApi";
+
+// confirm package
+import { useConfirm } from "material-ui-confirm";
 
 const columns = [
   { field: "id", headerName: "ID", width: 90 },
@@ -53,16 +55,30 @@ const columns = [
 
       const deleteHandler = (e) => {
         const currentRow = params.row;
-        // onDelete === mutate
-        row.onDelete(`/users/${currentRow.id}`);
+        row
+          .onConfirm({ description: "This action is permanent!" })
+          .then(() => {
+            // onDelete === mutate
+            row.onDelete(`/users/${currentRow.id}`);
+          })
+          .catch(() => {
+            console.log("This action cancel");
+          });
       };
 
       const editHandler = (e) => {
         const currentRow = params.row;
-        // send data without onSelect and onEdit
-        const { onEdit, onDelete, ...other } = currentRow;
-        // onEdit === mutate
-        row.onEdit(other);
+        row
+          .onConfirm({ description: "This action is permanent!" })
+          .then(() => {
+            // send data without onSelect and onEdit
+            const { onEdit, onDelete, ...other } = currentRow;
+            // onEdit === mutate
+            row.onEdit(other);
+          })
+          .catch(() => {
+            console.log("This action cancel");
+          });
       };
 
       return (
@@ -96,6 +112,7 @@ const UserListPage = () => {
   const { mutate: deleteUser } = useDeleteApi(["users"]);
   // Edit
   const { mutate: editUser } = useUpdateApi("users", "/users", "put");
+  const confirm = useConfirm();
 
   if (isLoading) {
     return <Loading />;
@@ -107,6 +124,7 @@ const UserListPage = () => {
       ...element,
       onDelete: deleteUser,
       onEdit: editUser,
+      onConfirm: confirm,
     };
   });
 

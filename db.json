@@ -29,12 +29,6 @@
   ],
   "users": [
     {
-      "id": 1,
-      "lastName": "kazem nia",
-      "firstName": "niki",
-      "age": "21"
-    },
-    {
       "id": 2,
       "lastName": "Lannister",
       "firstName": "Cersei",
@@ -48,8 +42,8 @@
     },
     {
       "id": 4,
-      "lastName": "Stark",
-      "firstName": "Arya",
+      "lastName": "nima",
+      "firstName": "Ali",
       "age": 16
     },
     {

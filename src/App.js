@@ -2,6 +2,7 @@ import { RouterProvider } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import router from "./routes/PanelRoutes";
 import { SnackbarProvider } from "notistack";
+import { ConfirmProvider } from "material-ui-confirm";
 // theme 
 
 import { ThemeProvider, createTheme } from "@mui/material";
@@ -28,9 +29,11 @@ function App() {
         horizontal: 'left',
       }}>
         <ThemeProvider theme={darkTheme}>
-          <QueryClientProvider client={queryClint}>
-            <RouterProvider router={router} />
-          </QueryClientProvider>
+          <ConfirmProvider>
+            <QueryClientProvider client={queryClint}>
+              <RouterProvider router={router} />
+            </QueryClientProvider>
+          </ConfirmProvider>
         </ThemeProvider>
       </SnackbarProvider>
     </>
