@@ -4,6 +4,7 @@ import { Paper } from "@mui/material";
 const BoxLayout = ({
   column = false,
   justify = "center",
+  alignItems = "center",
   gap = 0,
   children,
 }) => {
@@ -15,7 +16,7 @@ const BoxLayout = ({
         display: "flex",
         flexDirection: column ? "column" : "row",
         justifyContent: justify,
-        alignItems: "center",
+        alignItems: alignItems,
         gap: gap,
       }}
     >

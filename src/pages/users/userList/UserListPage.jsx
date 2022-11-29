@@ -6,6 +6,7 @@ import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 import AddButton from "../../../components/AddButton/AddButton";
+import BreadCrumbPanel from "../../../components/BreadCrumbs/BreadCrumbPanel";
 // loading component
 import Loading from "../../../components/Loading/Loading";
 // custom hook
@@ -129,7 +130,8 @@ const UserListPage = () => {
   return (
     <PanelLayout>
       <Title>User list</Title>
-      <BoxLayout justify="end">
+      <BoxLayout justify="space-between">
+        <BreadCrumbPanel />
         <AddButton text={"Add User"} link={"/userlist/adduser"} />
       </BoxLayout>
       <BoxLayout>

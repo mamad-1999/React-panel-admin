@@ -9,6 +9,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useForm } from "react-hook-form";
 
 import usePostApi from "../../../hooks/usePostApi";
+import BreadCrumbPanel from "../../../components/BreadCrumbs/BreadCrumbPanel";
 
 const AddUserPage = () => {
   const {
@@ -22,11 +23,15 @@ const AddUserPage = () => {
   const onSubmit = (data) => {
     mutate(data);
   };
+
   return (
     <PanelLayout>
-      <Title>Add User</Title>
+      <BoxLayout justify="start">
+        <BreadCrumbPanel />
+      </BoxLayout>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <BoxLayout gap={2} column={true}>
+        <BoxLayout gap={2} column={true} justify={"center"} alignItems={"start"}>
+          <Title>Add User</Title>
           <TextField
             fullWidth
             label="First Name"

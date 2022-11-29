@@ -5,7 +5,8 @@ export const AddUserConfig = {
         {
             path: "/userlist/adduser",
             exact: true,
-            element: <AddUserPage />
+            element: <AddUserPage />,
+
         }
     ]
 }
