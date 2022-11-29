@@ -2,14 +2,16 @@
 
 import { AddPostConfig } from "../pages/posts/AddPost/AddPostConfig"
 import { PostListConfig } from "../pages/posts/PostList/PostListConfig"
-import { UserListConfig } from "../pages/users/UserListConfig"
+import { UserListConfig } from "../pages/users/userList/UserListConfig"
+import { AddUserConfig } from "../pages/users/addUser/AddUserConfig"
 
 // route configs
 
 const routeConfigs = [
     ...AddPostConfig.routes,
     ...PostListConfig.routes,
-    ...UserListConfig.routes
+    ...UserListConfig.routes,
+    ...AddUserConfig.routes,
 ]
 
 const routes = [

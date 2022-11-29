@@ -2,15 +2,18 @@ import * as React from "react";
 import { Box, Stack, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 // import component
-import PanelLayout from "../../components/PanelLayout/PanelLayout";
-import Title from "../../components/Title/Title";
-import BoxLayout from "../../components/BoxLayout/BoxLayout";
+import PanelLayout from "../../../components/PanelLayout/PanelLayout";
+import Title from "../../../components/Title/Title";
+import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 // loading component
-import Loading from "../../components/Loading/Loading";
+import Loading from "../../../components/Loading/Loading";
 // custom hook
-import { useGetApi } from "../../hooks/useGetApi";
-import useUpdateApi from "../../hooks/useUpdateApi";
-import useDeleteApi from "../../hooks/useDeleteApi";
+import { useGetApi } from "../../../hooks/useGetApi";
+import useUpdateApi from "../../../hooks/useUpdateApi";
+import useDeleteApi from "../../../hooks/useDeleteApi";
+
+// import Link
+import { Link } from "react-router-dom";
 
 // confirm package
 import { useConfirm } from "material-ui-confirm";
@@ -130,7 +133,9 @@ const UserListPage = () => {
 
   return (
     <PanelLayout>
-      <Title>User list</Title>
+      <BoxLayout justify="space-between">
+        <Title>User list</Title>
+      </BoxLayout>
       <BoxLayout>
         <Box sx={{ height: 400, width: "100%" }}>
           <DataGrid
