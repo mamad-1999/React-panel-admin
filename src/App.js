@@ -29,7 +29,18 @@ function App() {
         horizontal: 'left',
       }}>
         <ThemeProvider theme={darkTheme}>
-          <ConfirmProvider>
+          <ConfirmProvider defaultOptions={{
+            confirmationButtonProps: {
+              autoFocus: true, variant: "outlined",
+              color: "success",
+              size: "small"
+            },
+            cancellationButtonProps: {
+              variant: "outlined",
+              color: "error",
+              size: "small"
+            },
+          }}>
             <QueryClientProvider client={queryClint}>
               <RouterProvider router={router} />
             </QueryClientProvider>
