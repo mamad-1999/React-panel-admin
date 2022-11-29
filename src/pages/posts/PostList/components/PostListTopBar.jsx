@@ -1,11 +1,9 @@
 import React from "react";
-import { Paper, Button, TextField, InputAdornment } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import { Paper, TextField, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-// import Link to create button link
-import { Link } from "react-router-dom";
 // import component
+import AddButton from "../../../../components/AddButton/AddButton";
 
 const PostListTopBar = ({ onFilterChange, filterKey }) => {
   return (
@@ -20,21 +18,7 @@ const PostListTopBar = ({ onFilterChange, filterKey }) => {
         gap: 2,
       }}
     >
-      <Button
-        LinkComponent={Link}
-        to="/posts/addpost"
-        size="medium"
-        variant="contained"
-        sx={{
-          backgroundColor: "#0063cc",
-          color: "#fff",
-          width: { xs: "100%", sm: "200px" },
-        }}
-        startIcon={<AddIcon />}
-      >
-        Add Post
-      </Button>
-
+      <AddButton text={"Add Post"} link={"/posts/addpost"} />
       <TextField
         fullWidth
         placeholder="Filter By Title"

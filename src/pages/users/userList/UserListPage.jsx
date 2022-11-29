@@ -5,15 +5,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
+import AddButton from "../../../components/AddButton/AddButton";
 // loading component
 import Loading from "../../../components/Loading/Loading";
 // custom hook
 import { useGetApi } from "../../../hooks/useGetApi";
 import useUpdateApi from "../../../hooks/useUpdateApi";
 import useDeleteApi from "../../../hooks/useDeleteApi";
-
-// import Link
-import { Link } from "react-router-dom";
 
 // confirm package
 import { useConfirm } from "material-ui-confirm";
@@ -133,8 +131,9 @@ const UserListPage = () => {
 
   return (
     <PanelLayout>
-      <BoxLayout justify="space-between">
-        <Title>User list</Title>
+      <Title>User list</Title>
+      <BoxLayout justify="end">
+        <AddButton text={"Add User"} link={"/userlist/adduser"} />
       </BoxLayout>
       <BoxLayout>
         <Box sx={{ height: 400, width: "100%" }}>
