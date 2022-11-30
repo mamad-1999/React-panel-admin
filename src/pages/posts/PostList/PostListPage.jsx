@@ -12,6 +12,7 @@ import useDeleteApi from "../../../hooks/useDeleteApi";
 
 import PostCard from "./components/PostCard";
 import PostListTopBar from "./components/PostListTopBar";
+import { useConfirm } from "material-ui-confirm";
 
 const PostListPage = () => {
   const [filterKey, setFilterKey] = useState("");
@@ -19,8 +20,17 @@ const PostListPage = () => {
   const { data, isLoading } = useGetApi(["posts"], "/posts", filterKey);
   const { mutate } = useDeleteApi(["posts"]);
 
+  // confirm library
+  const confirm = useConfirm();
+
   const deletePost = (postId) => {
-    mutate(`/posts/${postId}`);
+    confirm({ title: "Are you sure to delete post?" })
+      .then(() => {
+        mutate(`/posts/${postId}`);
+      })
+      .catch(() => {
+        console.log("Delete post failed");
+      });
   };
 
   if (isLoading) {

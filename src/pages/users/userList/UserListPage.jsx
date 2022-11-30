@@ -55,7 +55,7 @@ const columns = [
       const deleteHandler = (e) => {
         const currentRow = params.row;
         row
-          .onConfirm({ description: "This action is permanent!" })
+          .onConfirm({ title: "Are you sure to delete?" })
           .then(() => {
             // onDelete === mutate
             row.onDelete(`/users/${currentRow.id}`);
@@ -68,7 +68,7 @@ const columns = [
       const editHandler = (e) => {
         const currentRow = params.row;
         row
-          .onConfirm({ description: "This action is permanent!" })
+          .onConfirm({ title: "Are you sure to edit?" })
           .then(() => {
             // send data without onSelect and onEdit
             const { onEdit, onDelete, ...other } = currentRow;

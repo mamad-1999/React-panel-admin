@@ -1,3 +1,4 @@
+import { useConfirm } from "material-ui-confirm";
 import React, { createContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import usePostApi from "../hooks/usePostApi";
@@ -26,6 +27,8 @@ const PostPageProvider = ({ children }) => {
       comment: true,
     },
   });
+
+  const confirm = useConfirm();
 
   const contentHandler = (value) => {
     setPostData({
@@ -73,7 +76,13 @@ const PostPageProvider = ({ children }) => {
 
   const onSubmit = (validateData) => {
     const formData = { ...validateData, ...postData };
-    mutate(formData);
+    confirm({ title: "Are you sure add post?" })
+      .then(() => {
+        mutate(formData);
+      })
+      .catch(() => {
+        console.log("Add Post failed");
+      });
     console.log(formData);
   };
 
