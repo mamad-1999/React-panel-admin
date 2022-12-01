@@ -1,12 +1,12 @@
 import * as React from "react";
-import { Box, Stack, Button } from "@mui/material";
+import { Box, Stack, Button, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import HelpCenterIcon from "@mui/icons-material/HelpCenter";
 // import component
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 import AddButton from "../../../components/AddButton/AddButton";
-import BreadCrumbPanel from "../../../components/BreadCrumbs/BreadCrumbPanel";
 // loading component
 import Loading from "../../../components/Loading/Loading";
 // custom hook
@@ -129,10 +129,15 @@ const UserListPage = () => {
 
   return (
     <PanelLayout>
-      <Title>User list</Title>
       <BoxLayout justify="space-between">
-        <BreadCrumbPanel />
+        <Title>User list</Title>
         <AddButton text={"Add User"} link={"/userlist/adduser"} />
+      </BoxLayout>
+      <BoxLayout justify="start" gap={1}>
+        <HelpCenterIcon />
+        <Typography variant="body2">
+          Double-click the table cells to enter edit mode
+        </Typography>
       </BoxLayout>
       <BoxLayout>
         <Box sx={{ height: 400, width: "100%" }}>
