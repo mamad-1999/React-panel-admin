@@ -11,7 +11,7 @@ const Main = () => {
     <Box
       sx={(theme) => ({
         flexGrow: 1,
-        padding: theme.spacing(3),
+        padding: theme.spacing(2, 3),
         marginLeft: open ? (props) => -props.drawerWidth : "0 !important",
       })}
     >
