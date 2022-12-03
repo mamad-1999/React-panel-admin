@@ -61,7 +61,7 @@ const navigationConfig = [
                 title: "Calendar",
                 type: "item",
                 icon: <CalendarTodayIcon />,
-                url: "/pages/calendar",
+                url: "/calendar",
                 exact: true,
             },
         ],
