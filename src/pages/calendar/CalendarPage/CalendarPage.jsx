@@ -4,10 +4,10 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 // import component
-import PanelLayout from "../../components/PanelLayout/PanelLayout";
-import BoxLayout from "../../components/BoxLayout/BoxLayout";
-import AddButton from "../../components/AddButton/AddButton";
-import Title from "../../components/Title/Title";
+import PanelLayout from "../../../components/PanelLayout/PanelLayout";
+import BoxLayout from "../../../components/BoxLayout/BoxLayout";
+import AddButton from "../../../components/AddButton/AddButton";
+import Title from "../../../components/Title/Title";
 
 const localizer = momentLocalizer(moment);
 
