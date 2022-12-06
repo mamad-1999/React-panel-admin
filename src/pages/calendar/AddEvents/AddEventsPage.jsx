@@ -27,16 +27,18 @@ const AddEventsPage = () => {
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={1}>
           <Grid item xs={4}>
-            <TextField
-              fullWidth
-              label="Event Title"
-              id="Event Title"
-              {...register("title", {
-                required: "This field is required",
-              })}
-              error={Boolean(errors.title)}
-              helperText={errors.title ? errors.title.message : " "}
-            />
+            <BoxLayout>
+              <TextField
+                fullWidth
+                label="Event Title"
+                id="Event Title"
+                {...register("title", {
+                  required: "This field is required",
+                })}
+                error={Boolean(errors.title)}
+                helperText={errors.title ? errors.title.message : " "}
+              />
+            </BoxLayout>
           </Grid>
           <Grid item xs={8}>
             <BoxLayout column={true}>
