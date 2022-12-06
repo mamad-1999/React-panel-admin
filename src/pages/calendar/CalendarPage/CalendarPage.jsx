@@ -25,7 +25,7 @@ const CalendarPage = () => {
         events={myEventsList}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500, marginTop: 20 }}
+        style={{ height: 500, marginTop: 20, fontFamily: "sans-serif" }}
       />
     </PanelLayout>
   );
