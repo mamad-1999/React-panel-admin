@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Grid, Box, TextField } from "@mui/material";
 
@@ -9,7 +9,11 @@ import BreadCrumbPanel from "../../../components/BreadCrumbs/BreadCrumbPanel";
 
 import { useForm } from "react-hook-form";
 
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+
 const AddEventsPage = () => {
+  const [value, onChange] = useState(new Date());
   const {
     register,
     formState: { errors },
@@ -26,21 +30,7 @@ const AddEventsPage = () => {
       </BoxLayout>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={1}>
-          <Grid item xs={4}>
-            <BoxLayout>
-              <TextField
-                fullWidth
-                label="Event Title"
-                id="Event Title"
-                {...register("title", {
-                  required: "This field is required",
-                })}
-                error={Boolean(errors.title)}
-                helperText={errors.title ? errors.title.message : " "}
-              />
-            </BoxLayout>
-          </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={7}>
             <BoxLayout column={true}>
               <Box
                 sx={{
@@ -55,8 +45,22 @@ const AddEventsPage = () => {
                   maxWidth: "100%",
                 }}
               >
-                <h1>test</h1>
+                <TextField
+                  fullWidth
+                  label="Event Title"
+                  id="Event Title"
+                  {...register("title", {
+                    required: "This field is required",
+                  })}
+                  error={Boolean(errors.title)}
+                  helperText={errors.title ? errors.title.message : " "}
+                />
               </Box>
+            </BoxLayout>
+          </Grid>
+          <Grid item xs={5}>
+            <BoxLayout>
+              <Calendar onChange={onChange} value={value} />
             </BoxLayout>
           </Grid>
         </Grid>
