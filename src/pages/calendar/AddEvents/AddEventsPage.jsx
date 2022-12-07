@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 
-import { Grid, Box, TextField } from "@mui/material";
+import {
+  Grid,
+  Box,
+  TextField,
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Button,
+} from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 // import component
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
@@ -13,12 +24,31 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 const AddEventsPage = () => {
-  const [value, onChange] = useState(new Date());
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+    setValue,
+    watch,
+  } = useForm({
+    defaultValues: {
+      startDate: new Date(),
+      endDate: "",
+      status: "start",
+    },
+  });
+
+  const handelStatusDate = (e) => {
+    setValue("status", e.target.value);
+  };
+
+  const handelCalendarChange = (value) => {
+    if (watch("status") === "start") {
+      setValue("startDate", value);
+    } else if (watch("status") === "end") {
+      setValue("endDate", value);
+    }
+  };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -55,12 +85,67 @@ const AddEventsPage = () => {
                   error={Boolean(errors.title)}
                   helperText={errors.title ? errors.title.message : " "}
                 />
+                <FormControl>
+                  <FormLabel id="demo-controlled-radio-buttons-group">
+                    Gender
+                  </FormLabel>
+                  <RadioGroup
+                    aria-labelledby="demo-controlled-radio-buttons-group"
+                    name="controlled-radio-buttons-group"
+                    value={watch("status")}
+                    onChange={handelStatusDate}
+                    sx={{ marginBottom: "10px" }}
+                  >
+                    <FormControlLabel
+                      value="start"
+                      control={<Radio />}
+                      label="Start Event Date"
+                    />
+                    <FormControlLabel
+                      value="end"
+                      control={<Radio />}
+                      label="End Event Date"
+                    />
+                  </RadioGroup>
+                </FormControl>
+                <TextField
+                  disabled={true}
+                  value={watch("startDate")}
+                  fullWidth
+                  id="Event Title"
+                  placeholder="Chose start event date in calendar"
+                  sx={{ marginBottom: "10px" }}
+                />
+                <TextField
+                  disabled={true}
+                  value={watch("endDate")}
+                  fullWidth
+                  id="Event Title"
+                  placeholder="Chose end event date in calendar"
+                  sx={{ marginBottom: "20px" }}
+                />
+                <Button
+                  fullWidth
+                  size="large"
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#0063cc",
+                    color: "#fff",
+                  }}
+                  startIcon={<AddIcon />}
+                >
+                  Add User
+                </Button>
               </Box>
             </BoxLayout>
           </Grid>
           <Grid item xs={5}>
             <BoxLayout>
-              <Calendar onChange={onChange} value={value} />
+              <Calendar
+                onChange={handelCalendarChange}
+                value={watch("startDate")}
+              />
             </BoxLayout>
           </Grid>
         </Grid>
