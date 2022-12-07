@@ -144,7 +144,11 @@ const AddEventsPage = () => {
             <BoxLayout>
               <Calendar
                 onChange={handelCalendarChange}
-                value={watch("startDate")}
+                value={
+                  watch("status") === "start"
+                    ? watch("startDate")
+                    : watch("endDate")
+                }
               />
             </BoxLayout>
           </Grid>
