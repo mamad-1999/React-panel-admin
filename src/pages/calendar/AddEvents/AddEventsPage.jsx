@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   Grid,
@@ -23,7 +23,10 @@ import { useForm } from "react-hook-form";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
+import usePostApi from "../../../hooks/usePostApi";
+
 const AddEventsPage = () => {
+  const { mutate } = usePostApi(["events"], "/events", "post");
   const {
     register,
     formState: { errors },
@@ -32,8 +35,8 @@ const AddEventsPage = () => {
     watch,
   } = useForm({
     defaultValues: {
-      startDate: new Date(),
-      endDate: "",
+      start: new Date(),
+      end: "",
       status: "start",
     },
   });
@@ -44,14 +47,14 @@ const AddEventsPage = () => {
 
   const handelCalendarChange = (value) => {
     if (watch("status") === "start") {
-      setValue("startDate", value);
+      setValue("start", value);
     } else if (watch("status") === "end") {
-      setValue("endDate", value);
+      setValue("end", value);
     }
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+    mutate(data);
   };
   return (
     <PanelLayout>
@@ -110,7 +113,7 @@ const AddEventsPage = () => {
                 </FormControl>
                 <TextField
                   disabled={true}
-                  value={watch("startDate")}
+                  value={watch("start")}
                   fullWidth
                   id="Event Title"
                   placeholder="Chose start event date in calendar"
@@ -118,7 +121,7 @@ const AddEventsPage = () => {
                 />
                 <TextField
                   disabled={true}
-                  value={watch("endDate")}
+                  value={watch("end")}
                   fullWidth
                   id="Event Title"
                   placeholder="Chose end event date in calendar"
@@ -146,8 +149,8 @@ const AddEventsPage = () => {
                 onChange={handelCalendarChange}
                 value={
                   watch("status") === "start"
-                    ? watch("startDate")
-                    : watch("endDate")
+                    ? watch("start")
+                    : watch("end")
                 }
               />
             </BoxLayout>

@@ -6,11 +6,7 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": [
-        "programming",
-        "computer",
-        "javascript"
-      ],
+      "tags": ["programming", "computer", "javascript"],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
@@ -20,9 +16,7 @@
       "category": "Politics",
       "comment": true,
       "content": "",
-      "tags": [
-        "Back-end"
-      ],
+      "tags": ["Back-end"],
       "poster": "",
       "id": 2
     }
@@ -83,6 +77,16 @@
       "email": "mohammad@gmail.com",
       "age": "23",
       "id": 9
+    }
+  ],
+  "events": [
+    {
+      "start": "2022-12-07T20:30:00.000Z",
+      "end": "2022-12-09T20:30:00.000Z",
+      "status": "end",
+      "title": "Birthday",
+      "id": 1,
+      "resourceId": 1
     }
   ]
 }
