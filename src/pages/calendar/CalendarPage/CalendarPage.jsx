@@ -31,7 +31,17 @@ const CalendarPage = () => {
     return <Loading />;
   }
 
-  console.log(data)
+  const handelSelect = (item) => {
+    console.log("clicked", item);
+  };
+
+  const events = data.map(({ start, end, ...rest }) => {
+    return {
+      start: new Date(Date.parse(start)),
+      end: new Date(Date.parse(end)),
+      ...rest,
+    };
+  });
 
   return (
     <PanelLayout>
@@ -41,9 +51,10 @@ const CalendarPage = () => {
       </BoxLayout>
       <Calendar
         localizer={localizer}
-        events={data}
+        events={events}
         // startAccessor="start"
         // endAccessor="end"
+        onSelectEvent={handelSelect}
         style={{ height: 500, marginTop: 20, fontFamily: "sans-serif" }}
       />
     </PanelLayout>

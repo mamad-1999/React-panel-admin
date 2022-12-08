@@ -87,6 +87,14 @@
       "title": "Birthday",
       "id": 1,
       "resourceId": 1
+    },
+    {
+      "start": "2022-12-08T20:30:00.000Z",
+      "end": "2022-12-10T20:30:00.000Z",
+      "status": "end",
+      "title": "Meeting Day",
+      "id": 2,
+      "resourceId": 2
     }
   ]
 }
