@@ -11,28 +11,28 @@ import Title from "../../../components/Title/Title";
 
 import { useGetApi } from "../../../hooks/useGetApi";
 import Loading from "../../../components/Loading/Loading";
+import useDeleteApi from "../../../hooks/useDeleteApi";
+import { useConfirm } from "material-ui-confirm";
 
 const localizer = momentLocalizer(moment);
 
-// const myEventsList = [
-//   {
-//     id: 11,
-//     title: "Birthday Party",
-//     start: "2022-12-07T20:30:00.000Z",
-//     end: "2022-12-09T20:30:00.000Z",
-//     resourceId: 4,
-//   },
-// ];
-
 const CalendarPage = () => {
   const { data, isLoading } = useGetApi(["events"], "/events");
+  const { mutate } = useDeleteApi(["events"]);
+  const confirm = useConfirm();
 
   if (isLoading) {
     return <Loading />;
   }
 
   const handelSelect = (item) => {
-    console.log("clicked", item);
+    confirm({ title: "Are you sure to delete?" })
+      .then(() => {
+        mutate(`/events/${item.id}`);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   const events = data.map(({ start, end, ...rest }) => {
