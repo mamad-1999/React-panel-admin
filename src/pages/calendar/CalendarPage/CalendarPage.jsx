@@ -52,8 +52,6 @@ const CalendarPage = () => {
       <Calendar
         localizer={localizer}
         events={events}
-        // startAccessor="start"
-        // endAccessor="end"
         onSelectEvent={handelSelect}
         style={{ height: 500, marginTop: 20, fontFamily: "sans-serif" }}
       />
