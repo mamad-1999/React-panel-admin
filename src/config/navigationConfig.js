@@ -101,11 +101,11 @@ const navigationConfig = [
                 ],
             },
             {
-                id: "About",
-                title: "About",
+                id: "FAQ",
+                title: "FAQ",
                 type: "item",
                 icon: <ContactSupportIcon />,
-                url: "/pages/about",
+                url: "/FAQ",
                 exact: true,
             },
             {

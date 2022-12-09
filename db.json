@@ -6,11 +6,7 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": [
-        "programming",
-        "computer",
-        "javascript"
-      ],
+      "tags": ["programming", "computer", "javascript"],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
@@ -20,9 +16,7 @@
       "category": "Politics",
       "comment": true,
       "content": "",
-      "tags": [
-        "Back-end"
-      ],
+      "tags": ["Back-end"],
       "poster": "",
       "id": 2
     }
@@ -93,6 +87,23 @@
       "title": "Birthday",
       "id": 1,
       "resourceId": 1
+    }
+  ],
+  "FAQ": [
+    {
+      "id": 1,
+      "title": "Accordion 1",
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit Suspendisse malesuada lacus ex sit amet blandit leo lobortis eget"
+    },
+    {
+      "id": 2,
+      "title": "Accordion 2",
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit Suspendisse malesuada lacus ex sit amet blandit leo lobortis eget"
+    },
+    {
+      "id": 3,
+      "title": "Accordion 3",
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit Suspendisse malesuada lacus ex sit amet blandit leo lobortis eget"
     }
   ]
 }

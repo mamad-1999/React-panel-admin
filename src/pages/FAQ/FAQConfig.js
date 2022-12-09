@@ -1,11 +1,11 @@
-import FAQ from "./FAQConfig";
+import FAQPage from "./FAQPage"
 
 export const FAQConfig = {
     routes: [
         {
             path: "/FAQ",
             exact: true,
-            element: <FAQ />
+            element: <FAQPage />
         }
     ]
 }
