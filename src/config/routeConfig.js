@@ -6,6 +6,7 @@ import { UserListConfig } from "../pages/users/userList/UserListConfig"
 import { AddUserConfig } from "../pages/users/addUser/AddUserConfig"
 import { CalendarConfig } from "../pages/calendar/CalendarPage/CalendarConfig"
 import { AddEventsConfig } from "../pages/calendar/AddEvents/AddEventsConfig"
+import { FAQConfig } from "../pages/FAQ/FAQConfig"
 
 // route configs
 
@@ -15,7 +16,8 @@ const routeConfigs = [
     ...UserListConfig.routes,
     ...AddUserConfig.routes,
     ...CalendarConfig.routes,
-    ...AddEventsConfig.routes
+    ...AddEventsConfig.routes,
+    ...FAQConfig.routes,
 ]
 
 const routes = [
