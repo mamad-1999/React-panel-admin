@@ -2,6 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import DashboardPanel from "../pages/dashboard/DashboardPanel"
 import RootLayout from "../components/PanelLayout/RootLayout";
 import routes from "../config/routeConfig";
+import NotFound from "../pages/error/404/NotFound"
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
                     <Route key={index} {...route} />
                 ))
             }
+            <Route path="*" element={<NotFound />} />
         </Route>
     )
 )
