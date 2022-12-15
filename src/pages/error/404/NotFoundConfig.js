@@ -1,4 +1,6 @@
-import NotFound from "./NotFound";
+import { lazy } from "react";
+
+const NotFound = lazy(() => import("./NotFound"))
 
 export const NotFoundConfig = {
     routes: [

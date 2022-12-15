@@ -1,4 +1,6 @@
-import CalendarPage from "./CalendarPage";
+import { lazy } from "react";
+
+const CalendarPage = lazy(() => import("./CalendarPage"))
 
 export const CalendarConfig = {
     routes: [

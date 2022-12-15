@@ -1,4 +1,6 @@
-import PostListPage from "./PostListPage";
+import { lazy } from "react";
+
+const PostListPage = lazy(() => import("./PostListPage"))
 
 export const PostListConfig = {
     routes: [

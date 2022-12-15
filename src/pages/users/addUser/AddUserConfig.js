@@ -1,4 +1,6 @@
-import AddUserPage from "./AddUserPage";
+import { lazy } from "react";
+
+const AddUserPage = lazy(() => import("./AddUserPage"))
 
 export const AddUserConfig = {
     routes: [

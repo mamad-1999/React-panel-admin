@@ -1,4 +1,6 @@
-import AddEventsPage from "./AddEventsPage";
+import { lazy } from "react";
+
+const AddEventsPage = lazy(() => import("./AddEventsPage"))
 
 export const AddEventsConfig = {
     routes: [

@@ -1,4 +1,6 @@
-import FAQPage from "./FAQPage"
+import { lazy } from "react"
+
+const FAQPage = lazy(() => import("./FAQPage"))
 
 export const FAQConfig = {
     routes: [

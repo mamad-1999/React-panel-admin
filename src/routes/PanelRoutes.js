@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route, Navigate } from "react-router-dom";
 import DashboardPanel from "../pages/dashboard/DashboardPanel"
 import RootLayout from "../components/PanelLayout/RootLayout";
 import routes from "../config/routeConfig";
@@ -13,7 +13,8 @@ const router = createBrowserRouter(
                     <Route key={index} {...route} />
                 ))
             }
-            <Route path="*" element={<NotFound />} />
+            <Route path="/notfound" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/notfound" />} />
         </Route>
     )
 )
