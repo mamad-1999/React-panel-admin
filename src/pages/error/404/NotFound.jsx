@@ -51,7 +51,10 @@ const NotFound = () => {
         >
           OOPS! PAGE NOT FOUND
         </Typography>
-        <Button variant="contained" onClick={() => navigate(-1)}>
+        <Button
+          variant="contained"
+          onClick={() => navigate("/")}
+        >
           Back to home
         </Button>
       </Paper>
