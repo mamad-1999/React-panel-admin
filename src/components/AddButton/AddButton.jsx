@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import AddIcon from "@mui/icons-material/Add";
@@ -22,4 +22,4 @@ const AddButton = ({ text, link }) => {
   );
 };
 
-export default AddButton;
+export default memo(AddButton);

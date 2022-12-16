@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { Paper } from "@mui/material";
 
 const BoxLayout = ({
@@ -25,4 +25,4 @@ const BoxLayout = ({
   );
 };
 
-export default BoxLayout;
+export default memo(BoxLayout);

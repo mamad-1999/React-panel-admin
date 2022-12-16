@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, memo } from "react";
 import {
   AppBar,
   Box,
@@ -15,7 +15,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import NavigationContext from "../../context/NavigationContext";
 
-export default function Header(props) {
+export default memo(function Header(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -186,4 +186,4 @@ export default function Header(props) {
       {renderMenu}
     </>
   );
-}
+});

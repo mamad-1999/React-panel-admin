@@ -9,7 +9,7 @@ import Divider from "@mui/material/Divider";
 import NavigationPanel from "../Navigation/NavigationPanel";
 import NavigationContext from "../../context/NavigationContext";
 
-export default function PermanentDrawerLeft(props) {
+const PermanentDrawerLeft = (props) => {
   const { open } = React.useContext(NavigationContext);
   return (
     <Drawer
@@ -36,4 +36,6 @@ export default function PermanentDrawerLeft(props) {
       <NavigationPanel />
     </Drawer>
   );
-}
+};
+
+export default React.memo(PermanentDrawerLeft);
