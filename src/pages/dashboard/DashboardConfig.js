@@ -1,6 +1,4 @@
-import { lazy } from "react";
-
-const DashboardPanel = lazy(() => import("./DashboardPanel"))
+import DashboardPanel from "./DashboardPanel";
 
 export const DashboardConfig = {
     routes: [
