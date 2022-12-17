@@ -4,7 +4,7 @@ import { Button, Typography } from "@mui/material";
 import { Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import BackImage from "../../../assets/images/back-notfound.jpg";
+import BackImage from "./back-notfound.jpg";
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -51,10 +51,7 @@ const NotFound = () => {
         >
           OOPS! PAGE NOT FOUND
         </Typography>
-        <Button
-          variant="contained"
-          onClick={() => navigate("/")}
-        >
+        <Button variant="contained" onClick={() => navigate("/")}>
           Back to home
         </Button>
       </Paper>

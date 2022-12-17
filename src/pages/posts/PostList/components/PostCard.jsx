@@ -11,7 +11,7 @@ import {
 import Grid from "@mui/material/Unstable_Grid2";
 
 // default image for post item
-import postImage from "../../../../assets/images/default_blog.jpg";
+import postImage from "./default_blog.jpg";
 
 const PostCard = ({ post, onDeletePost }) => {
   return (
