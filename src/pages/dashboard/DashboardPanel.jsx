@@ -1,6 +1,6 @@
 import React from "react";
 import PanelLayout from "../../components/PanelLayout/PanelLayout";
-import { Paper, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
 // import chart
 import AreaChartPanel from "../../components/Charts/AreaChart/AreaChartPanel";
@@ -13,25 +13,44 @@ import DashboardTable from "./components/DoshboardTable/DashboardTable";
 // import component
 import Title from "../../components/Title/Title";
 import BoxLayout from "../../components/BoxLayout/BoxLayout";
+import Loading from "../../components/Loading/Loading";
+
+import { useGetApi } from "../../hooks/useGetApi";
 
 const DashboardPanel = () => {
+  const areaChartApi = useGetApi(["areaChart"], "/areaChartData");
+  const circleChartApi = useGetApi(["circleChart"], "/circleChartData");
+  const tinyBarChartApi = useGetApi(["tinyBarChart"], "/tinyBarChartData");
+
   return (
     <PanelLayout>
       <Title>Dashboard</Title>
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <BoxLayout>
-            <AreaChartPanel />
+            {areaChartApi.isLoading ? (
+              <Loading />
+            ) : (
+              <AreaChartPanel data={areaChartApi.data} />
+            )}
           </BoxLayout>
         </Grid>
         <Grid item xs={4}>
           <BoxLayout>
-            <CircleChartPanel />
+            {circleChartApi.isLoading ? (
+              <Loading />
+            ) : (
+              <CircleChartPanel data={circleChartApi.data} />
+            )}
           </BoxLayout>
         </Grid>
         <Grid item xs={8}>
           <BoxLayout>
-            <TinyBarChartPanel />
+            {tinyBarChartApi.isLoading ? (
+              <Loading />
+            ) : (
+              <TinyBarChartPanel data={tinyBarChartApi.data} />
+            )}
           </BoxLayout>
         </Grid>
         <Grid item xs={12}>
