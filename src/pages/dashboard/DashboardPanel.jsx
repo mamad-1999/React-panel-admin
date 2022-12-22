@@ -13,7 +13,7 @@ import DashboardTable from "./components/DoshboardTable/DashboardTable";
 // import component
 import Title from "../../components/Title/Title";
 import BoxLayout from "../../components/BoxLayout/BoxLayout";
-import Loading from "../../components/Loading/Loading";
+import SkeletonPanel from "../../components/skeleton/SkeletonPanel";
 
 import { useGetApi } from "../../hooks/useGetApi";
 
@@ -29,7 +29,7 @@ const DashboardPanel = () => {
         <Grid item xs={12}>
           <BoxLayout>
             {areaChartApi.isLoading ? (
-              <Loading />
+              <SkeletonPanel h={300} />
             ) : (
               <AreaChartPanel data={areaChartApi.data} />
             )}
@@ -38,7 +38,7 @@ const DashboardPanel = () => {
         <Grid item xs={4}>
           <BoxLayout>
             {circleChartApi.isLoading ? (
-              <Loading />
+              <SkeletonPanel h={300} />
             ) : (
               <CircleChartPanel data={circleChartApi.data} />
             )}
@@ -47,7 +47,7 @@ const DashboardPanel = () => {
         <Grid item xs={8}>
           <BoxLayout>
             {tinyBarChartApi.isLoading ? (
-              <Loading />
+              <SkeletonPanel h={300} />
             ) : (
               <TinyBarChartPanel data={tinyBarChartApi.data} />
             )}
