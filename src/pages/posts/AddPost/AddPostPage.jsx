@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
-import { Grid, Box, TextField } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 
 // import editor
 import JoditEditor from "jodit-react";
@@ -9,6 +9,7 @@ import PanelLeft from "./PanelLeft/PanelLeft";
 // import component
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
+import { Input } from "../../../components/FormControl";
 
 // context
 import { PostPageContext } from "../../../context/PostPageContext";
@@ -39,7 +40,7 @@ const AddPostPage = () => {
                   marginBottom: 2,
                 }}
               >
-                <TextField
+                <Input
                   fullWidth
                   label="Post Title"
                   id="Post Title"

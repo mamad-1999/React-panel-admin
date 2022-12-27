@@ -3,12 +3,13 @@ import React from "react";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import Title from "../../../components/Title/Title";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
-import { TextField, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 import { useForm } from "react-hook-form";
 
 import usePostApi from "../../../hooks/usePostApi";
+import Input from "../../../components/FormControl/Input";
 import BreadCrumbPanel from "../../../components/BreadCrumbs/BreadCrumbPanel";
 
 const AddUserPage = () => {
@@ -21,6 +22,7 @@ const AddUserPage = () => {
   const { mutate } = usePostApi(["users"], "/users", "post");
 
   const onSubmit = (data) => {
+    console.log(data);
     mutate(data);
   };
 
@@ -37,7 +39,7 @@ const AddUserPage = () => {
           alignItems={"start"}
         >
           <Title>Add User</Title>
-          <TextField
+          <Input
             autoFocus
             fullWidth
             label="First Name"
@@ -48,7 +50,7 @@ const AddUserPage = () => {
             error={Boolean(errors.firstName)}
             helperText={errors.firstName ? errors.firstName.message : " "}
           />
-          <TextField
+          <Input
             fullWidth
             label="Last Name"
             id="Last name"
@@ -58,7 +60,7 @@ const AddUserPage = () => {
             error={Boolean(errors.lastName)}
             helperText={errors.lastName ? errors.lastName.message : " "}
           />
-          <TextField
+          <Input
             fullWidth
             label="Email"
             id="email"
@@ -72,7 +74,7 @@ const AddUserPage = () => {
             error={Boolean(errors.email)}
             helperText={errors.email ? errors.email.message : " "}
           />
-          <TextField
+          <Input
             fullWidth
             label="Age"
             id="age"

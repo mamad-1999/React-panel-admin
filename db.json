@@ -6,7 +6,11 @@
       "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, ut.",
       "poster": "https://files.virgool.io/upload/users/214514/posts/g0i5a1u96rxi/zbg3tiw0f0sk.png",
       "date": "17:43",
-      "tags": ["programming", "computer", "javascript"],
+      "tags": [
+        "programming",
+        "computer",
+        "javascript"
+      ],
       "category": "computer",
       "comment": false,
       "author": "Mohammad Yousefvand"
@@ -16,9 +20,23 @@
       "category": "Politics",
       "comment": true,
       "content": "",
-      "tags": ["Back-end"],
+      "tags": [
+        "Back-end"
+      ],
       "poster": "",
       "id": 2
+    },
+    {
+      "title": "Mohammad",
+      "category": "Sport",
+      "comment": true,
+      "content": "<p>hello</p>",
+      "tags": [
+        "Javascript",
+        "React js"
+      ],
+      "poster": "",
+      "id": 3
     }
   ],
   "users": [
@@ -77,6 +95,13 @@
       "email": "mohammad@gmail.com",
       "age": "23",
       "id": 9
+    },
+    {
+      "firstName": "Hasan",
+      "lastName": "ahmadi",
+      "email": "nima@gmail.com",
+      "age": "12",
+      "id": 10
     }
   ],
   "events": [
@@ -151,10 +176,22 @@
     }
   ],
   "circleChartData": [
-    { "name": "Group A", "value": 400 },
-    { "name": "Group B", "value": 300 },
-    { "name": "Group C", "value": 300 },
-    { "name": "Group D", "value": 200 }
+    {
+      "name": "Group A",
+      "value": 400
+    },
+    {
+      "name": "Group B",
+      "value": 300
+    },
+    {
+      "name": "Group C",
+      "value": 300
+    },
+    {
+      "name": "Group D",
+      "value": 200
+    }
   ],
   "tinyBarChartData": [
     {

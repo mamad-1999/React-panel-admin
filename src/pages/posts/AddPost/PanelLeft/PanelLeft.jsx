@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import {
   Box,
-  TextField,
   MenuItem,
   Button,
   FormGroup,
@@ -14,6 +13,7 @@ import AddTag from "./AddTag";
 
 // import component
 import BoxLayout from "../../../../components/BoxLayout/BoxLayout";
+import { Input } from "../../../../components/FormControl";
 
 // context
 import { PostPageContext } from "../../../../context/PostPageContext";
@@ -35,7 +35,7 @@ const PanelLeft = () => {
         <Typography variant="p" sx={{ paddingLeft: 1 }}>
           option
         </Typography>
-        <TextField
+        <Input
           sx={{ marginTop: 2 }}
           fullWidth
           select
@@ -52,7 +52,7 @@ const PanelLeft = () => {
           <MenuItem value="Sport">Sport</MenuItem>
           <MenuItem value="Programming">Programming</MenuItem>
           <MenuItem value="Computer">Computer</MenuItem>
-        </TextField>
+        </Input>
       </Box>
       <AddTag />
       <ImageUpload />

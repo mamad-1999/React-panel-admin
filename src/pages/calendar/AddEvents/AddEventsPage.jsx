@@ -17,6 +17,7 @@ import AddIcon from "@mui/icons-material/Add";
 import BoxLayout from "../../../components/BoxLayout/BoxLayout";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import BreadCrumbPanel from "../../../components/BreadCrumbs/BreadCrumbPanel";
+import { Input } from "../../../components/FormControl";
 
 import { useForm } from "react-hook-form";
 
@@ -78,7 +79,7 @@ const AddEventsPage = () => {
                   maxWidth: "100%",
                 }}
               >
-                <TextField
+                <Input
                   fullWidth
                   label="Event Title"
                   id="Event Title"
@@ -111,7 +112,7 @@ const AddEventsPage = () => {
                     />
                   </RadioGroup>
                 </FormControl>
-                <TextField
+                <Input
                   disabled={true}
                   value={watch("start")}
                   fullWidth
@@ -119,7 +120,7 @@ const AddEventsPage = () => {
                   placeholder="Chose start event date in calendar"
                   sx={{ marginBottom: "10px" }}
                 />
-                <TextField
+                <Input
                   disabled={true}
                   value={watch("end")}
                   fullWidth

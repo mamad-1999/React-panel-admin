@@ -1,9 +1,8 @@
 import React from "react";
 import { TextField } from "@mui/material";
 
-const Input = (props) => {
-  console.log(props);
-  return <TextField {...props} />;
-};
+const Input = React.forwardRef((props, ref) => {
+  return <TextField {...props} ref={ref} />;
+});
 
 export default Input;
