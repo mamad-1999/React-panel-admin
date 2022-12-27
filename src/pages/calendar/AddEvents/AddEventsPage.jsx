@@ -3,7 +3,6 @@ import React from "react";
 import {
   Grid,
   Box,
-  TextField,
   FormControl,
   FormLabel,
   RadioGroup,
@@ -139,7 +138,7 @@ const AddEventsPage = () => {
                   }}
                   startIcon={<AddIcon />}
                 >
-                  Add User
+                  Add Event
                 </Button>
               </Box>
             </BoxLayout>

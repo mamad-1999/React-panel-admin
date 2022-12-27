@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef } from "react";
 import PanelLayout from "../../../components/PanelLayout/PanelLayout";
 import { Grid, Box } from "@mui/material";
@@ -21,7 +22,7 @@ const AddPostPage = () => {
   const editor = useRef(null);
   const { postData, contentHandler, handleSubmit, onSubmit, register, errors } =
     useContext(PostPageContext);
-  const { isLoading } = useGetApi(["posts"], "/posts");
+  const { _ } = useGetApi(["posts"], "/posts");
 
   return (
     <PanelLayout>
