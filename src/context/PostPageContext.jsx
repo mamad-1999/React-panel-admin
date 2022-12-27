@@ -20,10 +20,11 @@ const PostPageProvider = ({ children }) => {
     setValue,
     reset,
     getValues,
+    watch,
   } = useForm({
     defaultValues: {
       title: "",
-      category: "",
+      category: "Programming",
       comment: true,
     },
   });
@@ -106,6 +107,7 @@ const PostPageProvider = ({ children }) => {
         resetImage,
         onSubmit,
         resetState,
+        watch,
       }}
     >
       {children}

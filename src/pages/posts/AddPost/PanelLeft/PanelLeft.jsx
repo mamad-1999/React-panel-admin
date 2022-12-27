@@ -19,6 +19,8 @@ import { Input } from "../../../../components/FormControl";
 import { PostPageContext } from "../../../../context/PostPageContext";
 import ImageUpload from "./ImageUpload";
 
+import categoryPost from "../../../../config/categoryPostConfig";
+
 const PanelLeft = () => {
   const { resetState, register, errors, setValue, getValues } =
     useContext(PostPageContext);
@@ -42,16 +44,17 @@ const PanelLeft = () => {
           id="demo-simple-select"
           label="category"
           onChange={(e) => setValue("category", e.target.value, true)}
-          defaultValue=""
+          defaultValue="Programming"
           {...register("category", {
             required: "required",
           })}
           error={Boolean(errors.category)}
         >
-          <MenuItem value="Politics">Politics</MenuItem>
-          <MenuItem value="Sport">Sport</MenuItem>
-          <MenuItem value="Programming">Programming</MenuItem>
-          <MenuItem value="Computer">Computer</MenuItem>
+          {categoryPost.map((item) => (
+            <MenuItem key={item.id} value={item.title}>
+              {item.title}
+            </MenuItem>
+          ))}
         </Input>
       </Box>
       <AddTag />

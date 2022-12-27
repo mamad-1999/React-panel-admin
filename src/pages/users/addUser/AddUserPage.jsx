@@ -9,7 +9,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 import { useForm } from "react-hook-form";
 
-import useGetApi from "../../../hooks/useGetApis";
+// import useGetApi from "../../../hooks/useGetApis";
 import usePostApi from "../../../hooks/usePostApi";
 import Input from "../../../components/FormControl/Input";
 import BreadCrumbPanel from "../../../components/BreadCrumbs/BreadCrumbPanel";
@@ -21,7 +21,7 @@ const AddUserPage = () => {
     formState: { errors },
   } = useForm();
 
-  const { _ } = useGetApi(["users"], "/users");
+  // const { _ } = useGetApi(["users"], "/users");
   const { mutate } = usePostApi(["users"], "/users", "post");
 
   const onSubmit = (data) => {

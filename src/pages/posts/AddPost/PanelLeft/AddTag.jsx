@@ -11,6 +11,7 @@ import {
 
 // context
 import { PostPageContext } from "../../../../context/PostPageContext";
+import categoryPost from "../../../../config/categoryPostConfig";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -23,21 +24,12 @@ const MenuProps = {
   },
 };
 
-const names = [
-  "React js",
-  "Javascript",
-  "Front-end",
-  "Back-end",
-  "Next js",
-  "Css",
-  "Bootstrap",
-  "Material UI",
-  "Linux",
-  "Tailwind css",
-];
-
 const AddTag = () => {
-  const { postData, tagHandler } = useContext(PostPageContext);
+  const { postData, tagHandler, watch } = useContext(PostPageContext);
+
+  const filterTagWithCategory = categoryPost.find(
+    (item) => item.title === watch("category")
+  );
 
   return (
     <Box
@@ -65,9 +57,9 @@ const AddTag = () => {
           )}
           MenuProps={MenuProps}
         >
-          {names.map((name) => (
-            <MenuItem key={name} value={name}>
-              {name}
+          {filterTagWithCategory.subCategory.map((tag) => (
+            <MenuItem key={tag} value={tag}>
+              {tag}
             </MenuItem>
           ))}
         </Select>
