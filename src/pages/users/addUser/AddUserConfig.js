@@ -6,7 +6,6 @@ export const AddUserConfig = {
     routes: [
         {
             path: "/userlist/adduser",
-            exact: true,
             element: <AddUserPage />,
 
         }

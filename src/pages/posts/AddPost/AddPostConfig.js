@@ -7,7 +7,6 @@ export const AddPostConfig = {
     routes: [
         {
             path: "/posts/addpost",
-            exact: true,
             element: <PostPageProvider><AddPostPage /></PostPageProvider>
         }
     ]

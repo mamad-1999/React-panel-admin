@@ -6,7 +6,6 @@ export const FAQConfig = {
     routes: [
         {
             path: "/FAQ",
-            exact: true,
             element: <FAQPage />
         }
     ]
